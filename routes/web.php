@@ -6,6 +6,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\StatusBookController;
+use App\Http\Controllers\SIBoardController;
+use App\Http\Controllers\TIBoardController;
+use App\Http\Controllers\DSCBoardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +21,10 @@ use App\Http\Controllers\StatusBookController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
-
 Route::get('login', [AuthController::class, 'login'])->name('login');
+
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
 Route::post('login', [AuthController::class, 'authenticating']);
 
 Route::get('register', [AuthController::class, 'register']);
@@ -38,5 +40,17 @@ Route::post('loan', [LoanController::class, 'submitloan'])->name('loan');
 Route::get('booking-now', [LoanController::class, 'bookingnow']);
 
 Route::get('status-letter', [StatusBookController::class, 'bookingstatus']);
+
+Route::get('dashboard', [DashboardController::class, 'bookhistory']);
+
+Route::get('book-si', [SIBoardController::class, 'bookSI']);
+Route::get('book-ti', [TIboardController::class, 'bookTI']);
+Route::get('book-dsc', [DSCboardController::class, 'bookDSC']);
+
+Route::get('history-si', [DashboardController::class, 'historySI']);
+
+Route::get('book-si', [SIBoardController::class, 'historySI']);
+Route::get('book-ti', [TIBoardController::class, 'historyTI']);
+Route::get('book-dsc', [DSCBoardController::class, 'historyDSC']);
 
 

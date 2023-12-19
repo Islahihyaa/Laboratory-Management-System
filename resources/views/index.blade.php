@@ -29,7 +29,15 @@
                 <div id="navbarSupportedContent"> 
                     <div class="d-flex">
                         <ul class="navbar-nav">
-                           <?php echo Auth::user()->full_name; ?>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#"><?php echo Auth::user()->full_name; ?></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="logout" method="post">Logout</a>
+                            </li>
+                            
+                        </ul>
                     </div>
 
                 </div>
