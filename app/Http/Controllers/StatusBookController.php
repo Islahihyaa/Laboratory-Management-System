@@ -14,7 +14,7 @@ class StatusBookController extends Controller
 
 
         $bookingstatus = Loan::where('user_id', $userId)
-        ->orderBy('date', 'desc')
+        ->orderBy('updated_at', 'desc')
         ->get();
         return view('status-letter', ['book_status' => $bookingstatus]);
     }

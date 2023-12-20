@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Loan;
+use Illuminate\Support\Facades\Auth;
 
 class ConfirmationController extends Controller
 {
@@ -18,6 +19,7 @@ class ConfirmationController extends Controller
         return view('confirmation-update', ['status_update' => $statusupdate]);
     }
 
+
     public function update(Request $request, $id)
     {
         $statusupdate = Loan::find($id);
@@ -27,6 +29,13 @@ class ConfirmationController extends Controller
             $statusupdate->status = 'REJECT';
         }
         $statusupdate->update();
-        return redirect('book-si')->with('status', "Data updated Successfully");
+
+        if($statusupdate->user->major == "Sistem Informasi") {
+            return redirect('book-si')->with('status', 'Data updated Successfully');
+        } elseif ($statusupdate->user->major == "Teknik Industri") {
+            return redirect('book-ti')->with('status', 'Data updated Successfully');
+        } elseif ($statusupdate->user->major == "Digital Supply Chain") {
+            return redirect('book-dsc')->with('status', 'Data updated Successfully');
+        } 
     }
 }

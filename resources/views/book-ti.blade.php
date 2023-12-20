@@ -271,10 +271,13 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Name</th>
+                                    <th>laboratorium</th>
                                     <th>Booking Date</th>
-                                    <th>Status</th>
+                                    <th>Purpose</th>
                                     <th>Submission Date</th>
+                                    <th>Status</th>
                                     <th>Action</th>
+                                </tr>
                                 </tr>
                             </thead>
                             <tbody>
@@ -282,19 +285,30 @@
                                 <tr>
                                     <td scope="row">{{ $loop -> iteration }}</td>
                                     <td scope="row">{{ $item -> user -> full_name }}</td>
+                                    <td scope="row">{{ $item -> lab }}</td>
                                     <td scope="row">{{ $item -> date }}</td>
-                                    <td scope="row">{{ $item -> status }}</td>
+                                    <td scope="row">{{ $item -> booking_purpose }}</td>
                                     <td scope="row">{{ $item -> created_at}}</td>
-                                    <td scope="row">action</td>
+                                    <td scope="row">    
+                                        @if ($item->status == 'APPROVED')
+                                            <i class="fw-bolder text-success">APPROVED</i> 
+                                        @elseif ($item->status == 'REJECT')
+                                            <i class="fw-bolder text-danger">REJECTED</i>
+                                        @else
+                                            <i class="fw-bolder text-secondary">PENDING</i>
+                                        @endif</td>
+                                    <td scope="row">
+                                           <a href="{{url('confirmation-update/'.$item -> id)}}" class="btn btn-primary">Change Status</a></td>
+                                        </form>
+                                    </td>
+                                </tr>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
-
             </div>
-
 
         </div>
     </div>

@@ -272,35 +272,47 @@
 
                 </div>
                 <div class="line"></div>
+                @if(Session::has('status'))
+                    <div class="alert alert-danger alert-lg"> {{ Session::get('status') }}</div>
+                @endif
                 <span class="my-3">
                     <p class="fw-bold text-dark"> Booking History </p>
-
                 </span>
-                @foreach ($book_history as $item)                       
-                <div class="row row-cos-1">
-                    <div class="col">
-                            <div class="card rounded-4 border-success my-1  ">
-                                <div class="card-body">
-                                    <div class="row row-cols-4">
-                                        <div class="col">
-                                            <p class="card-text text-dark">{{ $item ->user -> full_name }}</p>
-                                        </div>
-                                        <div class="col">
-                                            <p class="card-text text-dark">{{ $item -> lab}}</p>
 
-                                        </div>
-                                        <div class="col">
-                                            <p class="card-text text-dark">{{ $item -> date}}</p>
-                                        </div>
-                                        <div class="col">
-                                            <p class="card-text text-dark">{{ $item -> time_rent }} - {{ $item -> time_return }}</p>
-                                        </div>
-                                    </div>
-                                </div>                            
-                            </div>
-                    </div>
-                </div>
-                @endforeach
+                <table class="table  table-hover table-bordered table-white align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>laboratorium</th>
+                                    <th>Booking Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($book_history as $item)  
+                                <tr>
+                                    <td scope="row">{{ $loop -> iteration }}</td>
+                                    <td scope="row">{{ $item -> user -> full_name }}</td>
+                                    <td scope="row">{{ $item -> lab }}</td>
+                                    <td scope="row">{{ $item -> date }}</td>
+                                    <td scope="row">
+                                        @if ($item->status == 'APPROVED')
+                                            <i class="fw-bolder text-success">APPROVED</i> 
+                                        @elseif ($item->status == 'REJECT')
+                                            <i class="fw-bolder text-danger">REJECTED</i>
+                                        @else
+                                            <i class="fw-bolder text-secondary">PENDING</i>
+                                        @endif</td>
+                                    <td scope="row">
+                                           <a href="{{url('confirmation-delete/'.$item -> id)}}" class="btn btn-danger">Delete</a></td>
+                                           <!-- <button class="btn btn-danger" value="{{ $item -> id }}">Delete</button> -->
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
             </div>
 
 

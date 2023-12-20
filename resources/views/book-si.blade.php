@@ -288,7 +288,14 @@
                                     <td scope="row">{{ $item -> date }}</td>
                                     <td scope="row">{{ $item -> booking_purpose }}</td>
                                     <td scope="row">{{ $item -> created_at}}</td>
-                                    <td scope="row">{{ $item -> status}}</td>
+                                    <td scope="row">    
+                                        @if ($item->status == 'APPROVED')
+                                            <i class="fw-bolder text-success">APPROVED</i> 
+                                        @elseif ($item->status == 'REJECT')
+                                            <i class="fw-bolder text-danger">REJECTED</i>
+                                        @else
+                                            <i class="fw-bolder text-secondary">PENDING</i>
+                                        @endif</td>
                                     <td scope="row">
                                            <a href="{{url('confirmation-update/'.$item -> id)}}" class="btn btn-primary">Change Status</a></td>
                                         </form>

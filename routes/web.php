@@ -60,3 +60,5 @@ Route::get('detail-room', [DetailRoomController::class, 'detailroom']);
 Route::get('confirmation-update/{id}', [ConfirmationController::class, 'confirmation']);
 Route::get('confirmation-update/{id}', [ConfirmationController::class, 'getdata']);
 Route::put('confirmation-update/{id}', [ConfirmationController::class, 'update']);
+
+Route::get('confirmation-delete/{id}', [DashboardController::class, 'delete']);
