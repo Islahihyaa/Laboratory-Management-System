@@ -104,7 +104,7 @@
 
     #sidebar ul li.active>a,
     a[aria-expanded="true"] {
-        color: black;
+        color: #7386D5;
         background: white;
         border-radius: 20px;
         margin: 8px 0;
@@ -190,7 +190,7 @@
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="dashboard.php">Dashboard</a>
+                    <a href="dashboard">Dashboard</a>
                 </li>
                 <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
@@ -207,7 +207,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="detail-room.php">Detail Room</a>
+                    <a href="detail-room">Detail Room</a>
                 </li>
             </ul>
         </nav>
@@ -222,11 +222,9 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#"><?php echo Auth::user()->full_name; ?></a>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="logout" method="post">Logout</a>
                             </li>
-                            
                         </ul>
 
                     </div>

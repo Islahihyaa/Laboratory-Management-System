@@ -105,7 +105,7 @@
 
     #sidebar ul li.active>a,
     a[aria-expanded="true"] {
-        color: black;
+        color: #7386D5;
         background: white;
         border-radius: 20px;
         margin: 8px 0;
@@ -190,16 +190,16 @@
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="dashboard.php">Dashboard</a>
-                </li>
                 <li>
+                    <a href="dashboard">Dashboard</a>
+                </li>
+                <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="book-si">Sistem Informasi</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="book-ti">Teknik Industri</a>
                         </li>
                         <li>
@@ -208,7 +208,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="detail-room.php">Detail Room</a>
+                    <a href="detail-room">Detail Room</a>
                 </li>
             </ul>
         </nav>
@@ -216,10 +216,18 @@
         <!-- Page Content  -->
         <div id="content" class="p-0">
 
-            <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <div class="d-flex justify-content-end w-100">
                         <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#"><?php echo Auth::user()->full_name; ?></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="logout" method="post">Logout</a>
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
             </nav>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking SI</title>
+    <title>Detail Room</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -164,7 +164,9 @@
         transition: all 0.3s;
     }
 
-
+    .card {
+        min-height: 150px;
+    }
 
     @media (max-width: 768px) {
         #sidebar {
@@ -193,10 +195,10 @@
                 <li>
                     <a href="dashboard">Dashboard</a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li class="active">
+                        <li>
                             <a href="book-si">Sistem Informasi</a>
                         </li>
                         <li>
@@ -207,7 +209,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="active">
                     <a href="detail-room">Detail Room</a>
                 </li>
             </ul>
@@ -215,92 +217,92 @@
 
         <!-- Page Content  -->
         <div id="content" class="p-0">
+
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <div class="d-flex justify-content-end w-100">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><?php echo Auth::user()->full_name; ?></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="logout" method="post">Logout</a>
-                            </li>
-                        </ul>
-
                     </div>
                 </div>
             </nav>
 
             <div id="content-data" class="px-5">
 
-                <h2>Sistem Informasi</h2>
+
+                <div>
+                    <div class="detail-title my-5">
+                        <h1>Detail Room</h1>
+                        <p class="text-dark fw-bold">Detail of integra TULT laboratorium</p>
+                    </div>
+
+                    <div class="description">
+                        <h6 class="fw-bold">Description</h6>
+                        <p class="text-dark w-75">A computer laboratory is a specially designed workspace for testing, development, and experiments in the field of computer technology. This room has an organized layout with workstations equipped with computers, monitors, and other computer accessories.</p>
+                    </div>
+                </div>
+
+
                 <div class="row">
+                    <h5 class="my-3">Facilities</h5>
                     <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">All Book
-                            <button class="btn btn-sm btn-primary"></button>
-                        </p>
+                        <div class="card rounded-4 border-success">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Capacity</h5>
+                                <h6>50 <br>People</h6>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">Approved
-                            <button class="btn btn-sm btn-success"></button>
-                        </p>
+                        <div class="card rounded-4 border-success">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Capacity</h5>
+                                <h6>50 <br>Unit</h6>
+                            </div>
+
+                        </div>
                     </div>
-                
                     <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">Pending Book
-                            <button class="btn btn-sm btn-warning"></button>
-                        </p>
+                        <div class="card rounded-4 border-success">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Projector</h5>
+                                <h6>2 <br>Unit</h6>
+                            </div>
+
+                        </div>
                     </div>
+
                     <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">Rejected Book
-                            <button class="btn btn-sm btn-danger"></button>
-                        </p>
+                        <div class="card rounded-4 border-success">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Projector Screen</h5>
+                                <h6>2 <br>Unit</h6>
+                            </div>
+
+                        </div>
                     </div>
+
+
                 </div>
-
-                <div class="line my-3"></div>
-                <span class="my-3">
-                    <p class="fw-bold text-dark"> Booking History </p>
-
+                <div class="line"></div>
+                <span class="my-2">
+                    <p class="fw-bold text-dark"> Pictures </p>
                 </span>
-                  
-                <div class="row row-cos-1">
+                <div class="row row-cols-3 my-5">
                     <div class="col">
-                        <table class="table  table-hover table-bordered table-white align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>No</th>
-                                    <th>Name</th>
-                                    <th>laboratorium</th>
-                                    <th>Booking Date</th>
-                                    <th>Purpose</th>
-                                    <th>Submission Date</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($si_book_history as $item)  
-                                <tr>
-                                    <td scope="row">{{ $loop -> iteration }}</td>
-                                    <td scope="row">{{ $item -> user -> full_name }}</td>
-                                    <td scope="row">{{ $item -> lab }}</td>
-                                    <td scope="row">{{ $item -> date }}</td>
-                                    <td scope="row">{{ $item -> booking_purpose }}</td>
-                                    <td scope="row">{{ $item -> created_at}}</td>
-                                    <td scope="row">{{ $item -> status}}</td>
-                                    <td scope="row">
-                                           <a href="{{url('confirmation-update/'.$item -> id)}}" class="btn btn-primary">Change Status</a></td>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                                <img src="images/Mask group.png" alt="">
+                    </div>
+                    <div class="col">
+                                <img src="images/Mask group-2.png" alt="">
+                    </div>
+                    <div class="col">
+                                <img src="images/Mask group-1.png" alt="">
                     </div>
                 </div>
-                
-
             </div>
 
 
@@ -308,7 +310,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" integrity="sha512-qzrZqY/kMVCEYeu/gCm8U2800Wz++LTGK4pitW/iswpCbjwxhsmUwleL1YXaHImptCHG0vJwU7Ly7ROw3ZQoww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 

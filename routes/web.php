@@ -9,6 +9,8 @@ use App\Http\Controllers\StatusBookController;
 use App\Http\Controllers\SIBoardController;
 use App\Http\Controllers\TIBoardController;
 use App\Http\Controllers\DSCBoardController;
+use App\Http\Controllers\DetailRoomController;
+use App\Http\Controllers\ConfirmationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,4 +55,8 @@ Route::get('book-si', [SIBoardController::class, 'historySI']);
 Route::get('book-ti', [TIBoardController::class, 'historyTI']);
 Route::get('book-dsc', [DSCBoardController::class, 'historyDSC']);
 
+Route::get('detail-room', [DetailRoomController::class, 'detailroom']);
 
+Route::get('confirmation-update/{id}', [ConfirmationController::class, 'confirmation']);
+Route::get('confirmation-update/{id}', [ConfirmationController::class, 'getdata']);
+Route::put('confirmation-update/{id}', [ConfirmationController::class, 'update']);
