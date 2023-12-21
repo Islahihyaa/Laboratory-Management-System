@@ -33,6 +33,9 @@
                 @if(Session::has('message'))
                     <div class="alert alert-danger"> {{ Session::get('message') }}</div>
                 @endif
+                @if(Session::has('status'))
+                    <div class="alert alert-success"> {{ Session::get('status') }}</div>
+                @endif
                 <form action="" method="POST">
                 @csrf
                     <div class="form-group mt-3">

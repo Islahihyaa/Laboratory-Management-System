@@ -30,6 +30,13 @@
             </div>
             <div class="col-4">
                 <h3>Account Register</h3>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
+                    </div>
+                @endif
                 <form action="" method="post">
                     @csrf
                     <div class="form-group mt-3">
@@ -70,7 +77,7 @@
 
                 </form>
                 <div class="text-center mt-4">
-                    Already have account ? <a href="login" class="text-success text-decoration-none">Login Here</a>
+                    Already have account ? <a href="/" class="text-success text-decoration-none">Login Here</a>
                 </div>
 
             </div>

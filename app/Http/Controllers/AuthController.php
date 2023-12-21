@@ -5,18 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
     public function login()
     {
-        return view ('login');
+        return view('auth.login');
     }
 
     public function register()
     {
-        return view ('register');
+        return view ('auth.register');
     }
 
     public function logout(Request $request)
@@ -24,7 +24,7 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('login');
+        return redirect('/');
     }
 
     public function registration(Request $request)
@@ -32,7 +32,7 @@ class AuthController extends Controller
         $request->validate([
             'full_name' => 'required',
             'email' => 'required',
-            'nim' => 'required',
+            'nim' => 'required|min:5',
             'date_of_birth' => 'required',
             'major' => 'required',
             'password' => 'required',
@@ -48,7 +48,8 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        return redirect ('login');
+        Session::flash('status','Register Success');
+        return redirect ('/');
     }
 
     public function authenticating(Request $request)
@@ -62,19 +63,15 @@ class AuthController extends Controller
             $request->session()->regenerate();
             if(Auth::user()->role == 'mahasiswa') {
                 return redirect('index');
-            }
-
-            if(Auth::user()->role == 'admin') {
+            } elseif((Auth::user()->role == 'admin')) {
                 return redirect('dashboard');
             }
 
+        } else {
+            Session::flash('message','Account not found');
+            return redirect('/');
         }
 
-        Session::flash('status','failed');
-        Session::flash('message','Account not found');
-		return redirect('/login');
-
-        
 
 
 
