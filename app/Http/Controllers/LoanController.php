@@ -9,6 +9,10 @@ use Session;
 
 class LoanController extends Controller
 {
+    public function successform()
+    {
+        return view ('client.form-success');
+    }
 
     public function submitloan(Request $request)
     {       
@@ -36,16 +40,11 @@ class LoanController extends Controller
         ]);
 
         if($loansubmission) {
-            return view ('form-success');
+            return redirect ('form-success');
 
         } else {
-            return redirect()->back()->withErrors(['message' => 'Please fill in the form correctly']);
+            return redirect("form-success");
         }      
-    }
-
-    public function bookingnow()
-    {
-        return view ('lab-loan-letter');
     }
 
 }

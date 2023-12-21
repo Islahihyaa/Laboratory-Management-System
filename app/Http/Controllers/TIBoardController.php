@@ -4,14 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Loan;
+use Session;
 
 class TIBoardController extends Controller
 {
-    public function bookTI()
-    {
-        return view('book-ti');
-    }
-
     public function historyTI()
     {
         $tibooking= Loan::with('user')
@@ -20,6 +16,6 @@ class TIBoardController extends Controller
         })
         ->orderBy('created_at', 'desc')
         ->get();
-        return view('book-ti', ['ti_book_history' => $tibooking]);
+        return view('admin.book-ti', ['ti_book_history' => $tibooking]);
     }
 }

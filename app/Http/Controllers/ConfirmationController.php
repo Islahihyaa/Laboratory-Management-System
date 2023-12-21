@@ -10,13 +10,13 @@ class ConfirmationController extends Controller
 {
     public function confirmation()
     {
-        return view('confirmation-update');
+        return view('admin.confirmation-update');
     }
 
     public function getdata($id)
     {
         $statusupdate = Loan::find($id);
-        return view('confirmation-update', ['status_update' => $statusupdate]);
+        return view('admin.confirmation-update', ['status_update' => $statusupdate]);
     }
 
 
@@ -31,11 +31,11 @@ class ConfirmationController extends Controller
         $statusupdate->update();
 
         if($statusupdate->user->major == "Sistem Informasi") {
-            return redirect('book-si')->with('status', 'Data updated Successfully');
+            return redirect('book-si')->with('message', 'Data updated Successfully');
         } elseif ($statusupdate->user->major == "Teknik Industri") {
-            return redirect('book-ti')->with('status', 'Data updated Successfully');
+            return redirect('book-ti')->with('message', 'Data updated Successfully');
         } elseif ($statusupdate->user->major == "Digital Supply Chain") {
-            return redirect('book-dsc')->with('status', 'Data updated Successfully');
+            return redirect('book-dsc')->with('message', 'Data updated Successfully');
         } 
     }
 }

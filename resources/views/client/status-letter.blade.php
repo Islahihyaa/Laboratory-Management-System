@@ -60,16 +60,19 @@
                                 <td scope="row">{{ $item -> created_at}}</td>
                                 <td scope="row">{{ $item -> date}}</td>
                                 <td scope="row">{{ $item -> time_rent}} - {{ $item -> time_return}}</td>
-                                <td scope="row">{{ $item -> status}}</td>
+                                <td scope="row">
+                                @if ($item->status == 'APPROVED')
+                                    <i class="fw-bolder text-success">APPROVED</i> 
+                                @elseif ($item->status == 'REJECT')
+                                    <i class="fw-bolder text-danger">REJECTED</i>
+                                @else
+                                    <i class="fw-bolder text-secondary">PENDING</i>
+                                @endif</td>
                                 <td scope="row">
                                     <a href="" class="btn btn-success">Print</a></td>
-
                             </tr>
                         @endforeach
-
-
                     </tbody>
-
                 </table>
             </div>
         </div>

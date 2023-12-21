@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand-lg bg-white ">
             <div class="container-fluid px-5">
                 <div class="d-block">
-                    <a class="navbar-brand btn btn-success rounded-5 px-4 text-light" href="index.php">Labacces</a>
+                    <a class="navbar-brand btn btn-success rounded-5 px-4 text-light" href="index">Labacces</a>
                     <img src="images/image 3.png" alt="">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -49,7 +49,6 @@
                 @csrf
                 <div class="row row-cols-3">
                     <div class="col">
-                        <input type="hidden" name="id_user" value="<?php echo Auth::user()->id; ?>">
                         <div class="form-group">
                             <label for="my-input">Name</label>
                             <input id="my-input" class="form-control" type="text" name="full_name" value="<?php echo Auth::user()->full_name; ?>" readonly>
@@ -82,9 +81,7 @@
                             <input id="my-input" class="form-control" type="date" name="date">
                         </div>
                         @if ($errors->has('date'))
-                            <div class="alert alert-danger">
-                                <p>{{ $errors->first('date') }}</p>
-                            </div>
+                            <p class="text-danger">{{ $errors->first('date') }}</p>
                         @endif
 
                     </div>
@@ -95,10 +92,8 @@
                             <input id="my-input" class="form-control" type="time" name="time_rent">
                         </div>
 
-                        @if ($errors->has('time_rent'))
-                            <div class="alert alert-danger">
-                                <p>{{ $errors->first('time_rent') }}</p>
-                            </div>
+                        @if ($errors->has('time_rent'))                                
+                            <p class="text-danger">{{ $errors->first('time_rent') }}</p>
                         @endif
                     </div>
 
@@ -109,9 +104,7 @@
                             <input id="my-input" class="form-control" type="time" name="time_return">
                         </div>
                         @if ($errors->has('time_return'))
-                                <div class="alert alert-danger">
-                                    <p>{{ $errors->first('time_return') }}</p>
-                                </div>
+                            <p class="text-danger">{{ $errors->first('time_return') }}</p>
                          @endif
                     </div>
 
@@ -140,9 +133,8 @@
                     <input id="my-input" class="form-control" type="text" name="booking_purpose">
                 </div>
                     @if ($errors->has('booking_purpose'))
-                        <div class="alert alert-danger">
-                            <p>{{ $errors->first('booking_purpose') }}</p>
-                        </div>
+                        <p class="text-danger">{{ $errors->first('booking_purpose') }}</p>
+
                     @endif
 
 

@@ -196,10 +196,10 @@
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
+                        <li class="active">
                             <a href="book-si">Sistem Informasi</a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="book-ti">Teknik Industri</a>
                         </li>
                         <li>
@@ -215,8 +215,7 @@
 
         <!-- Page Content  -->
         <div id="content" class="p-0">
-
-        <nav class="navbar navbar-expand-lg navbar-light">
+            <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <div class="d-flex justify-content-end w-100">
                         <ul class="navbar-nav">
@@ -234,7 +233,7 @@
 
             <div id="content-data" class="px-5">
 
-                <h2>Teknik Industri</h2>
+                <h2>Sistem Informasi</h2>
                 <div class="row">
                     <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
                         <p class="fw-bold text-dark">All Book
@@ -246,7 +245,7 @@
                             <button class="btn btn-sm btn-success"></button>
                         </p>
                     </div>
-                  
+                
                     <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
                         <p class="fw-bold text-dark">Pending Book
                             <button class="btn btn-sm btn-warning"></button>
@@ -262,8 +261,11 @@
                 <div class="line my-3"></div>
                 <span class="my-3">
                     <p class="fw-bold text-dark"> Booking History </p>
-
+                @if(Session::has('message'))
+                    <div class="alert alert-primary alert-lg"> {{ Session::get('message') }}</div>
+                @endif
                 </span>
+                  
                 <div class="row row-cos-1">
                     <div class="col">
                         <table class="table  table-hover table-bordered table-white align-middle">
@@ -278,10 +280,9 @@
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
-                                </tr>
                             </thead>
                             <tbody>
-                            @foreach ($ti_book_history as $item)  
+                            @foreach ($si_book_history as $item)  
                                 <tr>
                                     <td scope="row">{{ $loop -> iteration }}</td>
                                     <td scope="row">{{ $item -> user -> full_name }}</td>
@@ -302,13 +303,15 @@
                                         </form>
                                     </td>
                                 </tr>
-                                </tr>
                             @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
+                
+
             </div>
+
 
         </div>
     </div>

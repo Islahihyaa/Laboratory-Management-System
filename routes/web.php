@@ -23,42 +23,51 @@ use App\Http\Controllers\ConfirmationController;
 |
 */
 
-Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::middleware('validate')->group(function(){
+    Route::get('/', [AuthController::class, 'login'])->name('login');
+    Route::post('/', [AuthController::class, 'authenticating']);
+    Route::get('register', [AuthController::class, 'register']);
+    Route::post('register', [AuthController::class, 'registration'])->name('register');
+});
 
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::middleware('auth')->group(function(){
+    Route::get('logout', [AuthController::class, 'logout']);
 
-Route::post('login', [AuthController::class, 'authenticating']);
+    //user-index
+    Route::get('index', [UserController::class, 'index'])->middleware('only_user');
+    Route::get('loan', [UserController::class, 'loan']);
+    Route::get('status-letter', [UserController::class, 'status']);
 
-Route::get('register', [AuthController::class, 'register']);
-Route::post('register', [AuthController::class, 'registration'])->name('register');
+    //user-index-booking
+    Route::post('loan', [LoanController::class, 'submitloan'])->name('loan');
+    Route::get('form-success', [LoanController::class, 'successform']);
 
-Route::get('index', [UserController::class, 'index'])->middleware(['auth', 'only_user']);
-Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth', 'only_admin']);
+    //user-index-status
+    Route::get('status-letter', [StatusBookController::class, 'bookingstatus']);
+    Route::get('booking-now', [StatusBookController::class, 'bookingnow']);
 
-Route::get('loan', [UserController::class, 'loan']);
-Route::get('status-letter', [UserController::class, 'status']);
+    //admin-dashboard
+    Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware('only_admin');
+    Route::get('dashboard', [DashboardController::class, 'bookhistory']);
+    
+    //admin-dashboard-major
+    Route::get('book-si', [DashboardController::class, 'bookSI']);
+    Route::get('book-ti', [DashboardController::class, 'bookTI']);
+    Route::get('book-dsc', [DashboardController::class, 'bookDSC']);
+    Route::get('book-si', [SIBoardController::class, 'historySI']);
+    Route::get('book-ti', [TIBoardController::class, 'historyTI']);
+    Route::get('book-dsc', [DSCBoardController::class, 'historyDSC']);
+    
+    //admin-changestatus
+    Route::get('confirmation-update/{id}', [ConfirmationController::class, 'confirmation']);
+    Route::get('confirmation-update/{id}', [ConfirmationController::class, 'getdata']);
+    Route::put('confirmation-update/{id}', [ConfirmationController::class, 'update']);
+    
+    //admin-dashboard-delete
+    Route::get('confirmation-delete/{id}', [DashboardController::class, 'delete']);
 
-Route::post('loan', [LoanController::class, 'submitloan'])->name('loan');
-Route::get('booking-now', [LoanController::class, 'bookingnow']);
+    //admin-detailroom
+    Route::get('detail-room', [DetailRoomController::class, 'detailroom']);
+    
+});
 
-Route::get('status-letter', [StatusBookController::class, 'bookingstatus']);
-
-Route::get('dashboard', [DashboardController::class, 'bookhistory']);
-
-Route::get('book-si', [SIBoardController::class, 'bookSI']);
-Route::get('book-ti', [TIboardController::class, 'bookTI']);
-Route::get('book-dsc', [DSCboardController::class, 'bookDSC']);
-
-Route::get('history-si', [DashboardController::class, 'historySI']);
-
-Route::get('book-si', [SIBoardController::class, 'historySI']);
-Route::get('book-ti', [TIBoardController::class, 'historyTI']);
-Route::get('book-dsc', [DSCBoardController::class, 'historyDSC']);
-
-Route::get('detail-room', [DetailRoomController::class, 'detailroom']);
-
-Route::get('confirmation-update/{id}', [ConfirmationController::class, 'confirmation']);
-Route::get('confirmation-update/{id}', [ConfirmationController::class, 'getdata']);
-Route::put('confirmation-update/{id}', [ConfirmationController::class, 'update']);
-
-Route::get('confirmation-delete/{id}', [DashboardController::class, 'delete']);

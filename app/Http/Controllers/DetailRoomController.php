@@ -8,6 +8,6 @@ class DetailRoomController extends Controller
 {
     public function detailroom()
     {
-        return view('detail-room');
+        return view('admin.detail-room');
     }
 }

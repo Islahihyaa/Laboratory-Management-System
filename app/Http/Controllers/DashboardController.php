@@ -10,16 +10,31 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('dashboard');
+        return view('admin.dashboard');
+    }
+
+    public function bookSI()
+    {
+        return view('admin.book-si');
+    }
+
+    public function bookDSC()
+    {
+        return view('admin.book-dsc');
+    }
+
+    public function bookTI()
+    {
+        return view('admin.book-ti');
     }
 
     public function bookhistory()
     {
         $bookinghistory = Loan::with('user')
-        ->orderBy('created_at', 'desc')
+        ->orderBy('updated_at', 'desc')
         ->where('status', '!=', 'PENDING')
         ->get();
-        return view('dashboard', ['book_history' => $bookinghistory]);
+        return view('admin.dashboard', ['book_history' => $bookinghistory]);
     }
 
     public function delete($id)
@@ -28,8 +43,8 @@ class DashboardController extends Controller
         $deletehistory->delete();
 
         Session::flash('status','Data Deleted Succesfully');
-        // Session::flash('message','Account not found');
         return redirect('dashboard');
     }
+
 
 }

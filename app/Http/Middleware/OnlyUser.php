@@ -16,8 +16,8 @@ class OnlyUser
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()-> role != 'mahasiswa') {
-            return redirect('usersaja');
+        if(Auth::user()-> role != 'mahasiswa') {    
+            return redirect('dashboard');
         }
         return $next($request);
     }
