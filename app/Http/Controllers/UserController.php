@@ -9,17 +9,17 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view ('index');
+        return view ('client.index');
     }
 
     public function loan()
     {
-        return view ('lab-loan-letter');
+        return view ('client.lab-loan-letter');
     }
 
     public function status()
     {
-        return view ('status-letter');
+        return view ('client.status-letter');
     }
 
 
