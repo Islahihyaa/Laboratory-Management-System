@@ -5,7 +5,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoanController;
-use App\Http\Controllers\StatusBookController;
 use App\Http\Controllers\SIBoardController;
 use App\Http\Controllers\TIBoardController;
 use App\Http\Controllers\DSCBoardController;
@@ -43,8 +42,8 @@ Route::middleware('auth')->group(function(){
     Route::get('form-success', [LoanController::class, 'successform']);
 
     //user-index-status
-    Route::get('status-letter', [StatusBookController::class, 'bookingstatus']);
-    Route::get('booking-now', [StatusBookController::class, 'bookingnow']);
+    Route::get('status-letter', [LoanController::class, 'bookingstatus']);
+    Route::get('booking-now', [LoanController::class, 'bookingnow']);
 
     //admin-dashboard
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware('only_admin');
@@ -54,6 +53,7 @@ Route::middleware('auth')->group(function(){
     Route::get('book-si', [DashboardController::class, 'bookSI']);
     Route::get('book-ti', [DashboardController::class, 'bookTI']);
     Route::get('book-dsc', [DashboardController::class, 'bookDSC']);
+    
     Route::get('book-si', [SIBoardController::class, 'historySI']);
     Route::get('book-ti', [TIBoardController::class, 'historyTI']);
     Route::get('book-dsc', [DSCBoardController::class, 'historyDSC']);
