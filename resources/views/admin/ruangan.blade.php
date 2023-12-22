@@ -235,92 +235,24 @@
             </nav>
 
             <div id="content-data" class="px-5">
-
-                <h2>Overview</h2>
-                <div class="row">
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <div class="card rounded-4 border-success">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Total Approved</h5>
-                                <h1>25</h1>
-                                <p class="card-text text-warning">View Report</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <div class="card rounded-4 border-success">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Total Waiting</h5>
-                                <h1>8</h1>
-                                <p class="card-text text-warning">View Report</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <div class="card rounded-4 border-success">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Total Rejected</h5>
-                                <h1>3</h1>
-                                <p class="card-text text-warning">View Report</p>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="line"></div>
-                @if(Session::has('status'))
-                    <div class="alert alert-danger alert-lg"> {{ Session::get('status') }}</div>
-                @endif
-                <span class="my-3">
-                    <p class="fw-bold text-dark"> Booking History </p>
-                </span>
-
-                <table class="table  table-hover table-bordered table-white align-middle">
+                <h2>Ruangan Laboratorium</h2>
+                <div class="container-fluid bg-white p-4">
+            <a href="ruangan-loan" class="btn btn-success">Create</a>
+            <hr>
+            </div>
+            <div class="row row-cos-1">
+                    <div class="col">
+                        <table class="table  table-hover table-bordered table-white align-middle">
                             <thead class="table-light">
                                 <tr>
                                     <th>No</th>
-                                    <th>Name</th>
-                                    <th>laboratorium</th>
-                                    <th>Booking Date</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Nama Ruangan</th>
+                                    <th>Deskripsi Ruangan</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                            @foreach ($book_history as $item)  
-                                <tr>
-                                    <td scope="row">{{ $loop -> iteration }}</td>
-                                    <td scope="row">{{ $item -> user -> full_name }}</td>
-                                    <td scope="row">{{ $item -> lab }}</td>
-                                    <td scope="row">{{ $item -> date }}</td>
-                                    <td scope="row">
-                                        @if ($item->status == 'APPROVED')
-                                            <i class="fw-bolder text-success">APPROVED</i> 
-                                        @elseif ($item->status == 'REJECT')
-                                            <i class="fw-bolder text-danger">REJECTED</i>
-                                        @else
-                                            <i class="fw-bolder text-secondary">PENDING</i>
-                                        @endif</td>
-                                    <td scope="row">
-                                           <a href="{{url('confirmation-delete/'.$item -> id)}}" class="btn btn-danger">Delete</a></td>
-                                           <!-- <button class="btn btn-danger" value="{{ $item -> id }}">Delete</button> -->
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
                         </table>
+                    </div>
             </div>
-
-
-        </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>

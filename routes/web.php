@@ -10,6 +10,8 @@ use App\Http\Controllers\TIBoardController;
 use App\Http\Controllers\DSCBoardController;
 use App\Http\Controllers\DetailRoomController;
 use App\Http\Controllers\ConfirmationController;
+use App\Http\Controllers\RuanganController;
+use App\Http\Controllers\RuanganLoanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +70,10 @@ Route::middleware('auth')->group(function(){
 
     //admin-detailroom
     Route::get('detail-room', [DetailRoomController::class, 'detailroom']);
-    
+
+    //ruangan
+    Route::get('ruangan',[RuanganController::class,'ruangan']);
+    Route::get('ruangan-loan',[RuanganLoanController::class,'createroom']);
+    Route::post('ruangan-loan',[RuanganLoanController::class,'submitroom']);
 });
 
