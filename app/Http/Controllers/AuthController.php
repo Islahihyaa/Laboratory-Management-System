@@ -31,8 +31,8 @@ class AuthController extends Controller
     {
         $request->validate([
             'full_name' => 'required',
-            'email' => 'required',
-            'nim' => 'required|min:5',
+            'email' => 'required|unique:users',
+            'nim' => 'required|min:5|unique:users',
             'date_of_birth' => 'required',
             'major' => 'required',
             'password' => 'required',

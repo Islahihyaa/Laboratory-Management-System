@@ -54,7 +54,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label for="my-input">Select Time</label>
-                            <input id="my-input" class="form-control" name="time_rent" value="{{ $status_update->time_rent }}">
+                            <input id="my-input" class="form-control" name="time_rent" value="{{ $status_update->time_rent }}" readonly>
                         </div>
                     </div>
 
@@ -62,7 +62,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label for="my-input">Select Time to Return</label>
-                            <input id="my-input" class="form-control" name="time_return" value="{{ $status_update->time_return }}">
+                            <input id="my-input" class="form-control" name="time_return" value="{{ $status_update->time_return }}" readonly>
                         </div>
                     </div>
 
@@ -70,14 +70,14 @@
                     <div class="col mt-3">
                         <div class="form-group mt-3">
                             <label for="my-input">Laboratorium</label>
-                            <input id="my-input" class="form-control" type="text" name="lab" value="{{ $status_update->lab }}">
+                            <input id="my-input" class="form-control" type="text" name="lab" value="{{ $status_update->lab }}" readonly>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group mt-4">
                     <label for="my-input">Booking Purpose</label>
-                    <input id="my-input" class="form-control" type="text" name="booking_purpose" value="{{ $status_update->booking_purpose }}">
+                    <input id="my-input" class="form-control" type="text" name="booking_purpose" value="{{ $status_update->booking_purpose }}" readonly>
                 </div>
 
                 <div class="d-flex justify-content-center gap-3 mt-5">
