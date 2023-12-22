@@ -207,8 +207,14 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class>
                     <a href="detail-room">Detail Room</a>
+                </li>
+                <li>
+                    <a href="detail-room">Create Room</a>
+                </li>
+                <li>
+                    <a href="detail-room">Room Inventory</a>
                 </li>
             </ul>
         </nav>

@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Room</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Detail Inventory Room</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
@@ -196,7 +197,8 @@
                     <a href="dashboard">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Booking</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="book-si">Sistem Informasi</a>
@@ -209,7 +211,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li class>
                     <a href="detail-room">Detail Room</a>
                 </li>
                 <li>
@@ -234,88 +236,52 @@
 
             <div id="content-data" class="px-5">
 
-
                 <div>
                     <div class="detail-title my-5">
-                        <h1>Detail Room</h1>
-                        <p class="text-dark fw-bold">Detail of integra TULT laboratorium</p>
-                    </div>
-
-                    <div class="description">
-                        <h6 class="fw-bold">Description</h6>
-                        <p class="text-dark w-75">A computer laboratory is a specially designed workspace for testing, development, and experiments in the field of computer technology. This room has an organized layout with workstations equipped with computers, monitors, and other computer accessories.</p>
+                        <h1>Details of Room</h1>
+                        <p class="text-dark fw-bold">Detail Ruangan</p>
                     </div>
                 </div>
 
-
-                <div class="row">
-                    <h5 class="my-3">Facilities</h5>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <div class="card rounded-4 border-success">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Capacity</h5>
-                                <h6>50 <br>People</h6>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <div class="card rounded-4 border-success">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Capacity</h5>
-                                <h6>50 <br>Unit</h6>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <div class="card rounded-4 border-success">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Projector</h5>
-                                <h6>2 <br>Unit</h6>
-                            </div>
-
+                <div class="row grid column-gap-2 mx-1">
+                    <div class="card col-md-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Projector</h5>
+                            <p class="card-text">Total Projector: {{ $inventorie->projector }}</p>
                         </div>
                     </div>
 
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <div class="card rounded-4 border-success">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Projector Screen</h5>
-                                <h6>2 <br>Unit</h6>
-                            </div>
-
+                    <div class="card col-md-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Projector Screen</h5>
+                            <p class="card-text">Total Projector Sreen: {{ $inventorie->projector_screen }}</p>
                         </div>
                     </div>
 
+                    <div class="card col-md-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Computer</h5>
+                            <p class="card-text">Total Computer: {{ $inventorie->computer }}</p>
+                        </div>
+                    </div>
 
-                </div>
-                <div class="line"></div>
-                <span class="my-2">
-                    <p class="fw-bold text-dark"> Pictures </p>
-                </span>
-                <div class="row row-cols-3 my-5">
-                    <div class="col">
-                                <img src="images/Mask group.png" alt="">
+                    <div class="card col-md-2">
+                        <div class="card-body">
+                            <h5 class="card-title">Room Capacity</h5>
+                            <p class="card-text">Total Capacity: {{ $inventorie->room_capacity }} Orang</p>
+                        </div>
                     </div>
-                    <div class="col">
-                                <img src="images/Mask group-2.png" alt="">
-                    </div>
-                    <div class="col">
-                                <img src="images/Mask group-1.png" alt="">
-                    </div>
+
+                    <a href="{{ route('list-ruangan') }}" type="button" class="btn btn-success mt-5">Kembali</a>
                 </div>
             </div>
 
-
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
+            </script>
 </body>
 
 
