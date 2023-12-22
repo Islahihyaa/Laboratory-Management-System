@@ -1,0 +1,26 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+<<<<<<< HEAD
+        "axios": "^1.6.1",
+        "laravel-vite-plugin": "^0.8.0",
+=======
+<<<<<<< HEAD
+        "axios": "^1.6.1",
+        "laravel-vite-plugin": "^0.8.0",
+=======
+        "@popperjs/core": "^2.11.6",
+        "axios": "^1.6.1",
+        "bootstrap": "^5.2.3",
+        "laravel-vite-plugin": "^0.8.0",
+        "sass": "^1.56.1",
+>>>>>>> 2d8b518d (penambahan fitur user management)
+>>>>>>> 2a55bafa (penambahan fitur usermanagement)
+        "vite": "^4.0.0"
+    }
+}
