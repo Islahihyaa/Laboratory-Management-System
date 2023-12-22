@@ -263,7 +263,7 @@
                 <span class="my-3">
                     <p class="fw-bold text-dark"> Booking History </p>
                 @if(Session::has('message'))
-                    <div class="alert alert-danger alert-lg"> {{ Session::get('message') }}</div>
+                    <div class="alert alert-primary alert-lg"> {{ Session::get('message') }}</div>
                 @endif
                 </span>
                 <div class="row row-cos-1">
