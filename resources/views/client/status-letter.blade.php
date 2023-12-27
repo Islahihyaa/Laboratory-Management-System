@@ -1,41 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('client.layout.client-main-layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status Letter</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-</head>
+@section('title', 'Labacces | Status Letter')
 
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-white ">
-            <div class="container-fluid px-5">
-                <div class="d-block">
-                    <a class="navbar-brand btn btn-success rounded-5 px-4 text-light" href="index.php">Labacces</a>
-                    <img src="images/image 3.png" alt="">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
+@section('content')
 
-                <div id="navbarSupportedContent">
-                    <div class="d-flex">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><?php echo Auth::user()->full_name; ?></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="logout" method="post">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </nav>
-    </header>
+@include('client.layout.client-header') 
 
     <div id="status-letter" class="bg-light p-5">
         <h5>Booking Status</h5>
@@ -80,10 +49,6 @@
                 </table>
             </div>
         </div>
-
-
     </div>
-
-</body>
-
-</html>
+    
+@endsection
