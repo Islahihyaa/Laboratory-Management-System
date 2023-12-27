@@ -11,8 +11,9 @@ class Loan extends Model
     protected $table = 'loan';
 
     protected $fillable = [
+        'id',
         'user_id',
-        'lab',
+        'lab_id',
         'date',
         'time_rent',
         'time_return',
@@ -28,5 +29,15 @@ class Loan extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    /**
+     * Get the user that owns the Loan
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function laboratory(): BelongsTo
+    {
+        return $this->belongsTo(Laboratory::class, 'lab_id', 'id');
     }
 }

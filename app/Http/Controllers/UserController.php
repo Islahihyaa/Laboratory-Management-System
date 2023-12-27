@@ -12,11 +12,6 @@ class UserController extends Controller
         return view ('client.index');
     }
 
-    public function loan()
-    {
-        return view ('client.lab-loan-letter');
-    }
-
     public function status()
     {
         return view ('client.status-letter');

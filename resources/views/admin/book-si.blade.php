@@ -210,6 +210,9 @@
                 <li>
                     <a href="detail-room">Detail Room</a>
                 </li>
+                <li>
+                    <a href="laboratory">Laboratory</a>
+                </li>
             </ul>
         </nav>
 
@@ -226,7 +229,6 @@
                                 <a class="nav-link" href="logout" method="post">Logout</a>
                             </li>
                         </ul>
-
                     </div>
                 </div>
             </nav>
@@ -234,33 +236,38 @@
             <div id="content-data" class="px-5">
 
                 <h2>Sistem Informasi</h2>
-                <div class="row">
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">All Book
-                            <button class="btn btn-sm btn-primary"></button>
-                        </p>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">Approved
-                            <button class="btn btn-sm btn-success"></button>
-                        </p>
-                    </div>
-                
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">Pending Book
-                            <button class="btn btn-sm btn-warning"></button>
-                        </p>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">Rejected Book
-                            <button class="btn btn-sm btn-danger"></button>
-                        </p>
+
+                <div class="row row-cos-1">
+                    <div class="col">
+                        <table class="table  table-hover table-bordered table-white align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Laboratory Name</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($si_approved as $item)
+                                <tr>
+                                    <td scope="row">{{ $item -> laboratory['laboratory_name'] }}</td>
+                                    <td scope="row">{{ $item -> date }}</td>
+                                    <td scope="row">{{ $item -> time_rent }} - {{ $item -> time_return }}</td>
+                                    <td scope="row">
+                                        <i class="fw-bolder text-success">{{ $item -> status }}</i>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
                 <div class="line my-3"></div>
                 <span class="my-3">
-                    <p class="fw-bold text-dark"> Booking History </p>
+                    <p class="fw-bold text-dark"> Booking Requests </p>
                 @if(Session::has('message'))
                     <div class="alert alert-primary alert-lg"> {{ Session::get('message') }}</div>
                 @endif
@@ -275,8 +282,8 @@
                                     <th>Name</th>
                                     <th>laboratorium</th>
                                     <th>Booking Date</th>
+                                    <th>Booking Date</th>
                                     <th>Purpose</th>
-                                    <th>Submission Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -286,10 +293,10 @@
                                 <tr>
                                     <td scope="row">{{ $loop -> iteration }}</td>
                                     <td scope="row">{{ $item -> user -> full_name }}</td>
-                                    <td scope="row">{{ $item -> lab }}</td>
+                                    <td scope="row">{{ $item -> laboratory['laboratory_name'] }}</td>
                                     <td scope="row">{{ $item -> date }}</td>
+                                    <td scope="row">{{ $item -> time_rent }} - {{ $item -> time_return }}</td>
                                     <td scope="row">{{ $item -> booking_purpose }}</td>
-                                    <td scope="row">{{ $item -> created_at}}</td>
                                     <td scope="row">    
                                         @if ($item->status == 'APPROVED')
                                             <i class="fw-bolder text-success">APPROVED</i> 

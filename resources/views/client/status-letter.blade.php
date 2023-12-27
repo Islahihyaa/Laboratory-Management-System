@@ -37,7 +37,6 @@
         </nav>
     </header>
 
-
     <div id="status-letter" class="bg-light p-5">
         <h5>Booking Status</h5>
         <div class="container-fluid bg-white p-4">
@@ -48,8 +47,10 @@
                     <thead class="table-light">
                         <tr>
                             <th>Submission Date</th>
+                            <th>Laboratory</th>
                             <th>Booking Date</th>
                             <th>Time</th>
+                            <th>Purpose</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -58,8 +59,10 @@
                         @foreach ($book_status as $item)
                             <tr>
                                 <td scope="row">{{ $item -> created_at}}</td>
+                                <td scope="row">{{ $item -> laboratory -> laboratory_name }}</td>
                                 <td scope="row">{{ $item -> date}}</td>
                                 <td scope="row">{{ $item -> time_rent}} - {{ $item -> time_return}}</td>
+                                <td scope="row">{{ $item -> booking_purpose}}</td>
                                 <td scope="row">
                                 @if ($item->status == 'APPROVED')
                                     <i class="fw-bolder text-success">APPROVED</i> 
@@ -70,6 +73,7 @@
                                 @endif</td>
                                 <td scope="row">
                                     <a href="" class="btn btn-success">Print</a></td>
+                                
                             </tr>
                         @endforeach
                     </tbody>
