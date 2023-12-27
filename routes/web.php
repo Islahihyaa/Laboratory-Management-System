@@ -27,7 +27,7 @@ Route::middleware('validate')->group(function(){
     Route::get('/', [AuthController::class, 'login'])->name('login');
     Route::post('/', [AuthController::class, 'authenticating']);
     Route::get('register', [AuthController::class, 'register']);
-    Route::post('register', [AuthController::class, 'registration'])->name('register');
+    Route::post('register', [AuthController::class, 'registration']);
 });
 
 Route::middleware('auth')->group(function(){
