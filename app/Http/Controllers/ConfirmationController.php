@@ -15,10 +15,9 @@ class ConfirmationController extends Controller
 
     public function getdata($id)
     {
-        $statusupdate = Loan::find($id);
+        $statusupdate = Loan::with('laboratory')->find($id);
         return view('admin.confirmation-update', ['status_update' => $statusupdate]);
     }
-
 
     public function update(Request $request, $id)
     {
