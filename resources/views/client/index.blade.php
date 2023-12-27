@@ -56,7 +56,7 @@
                 <a href ="status-letter" name="status" class="btn btn-outline-success rounded-5 px-4">
                     Status
                 </a>
-                <a href ="loan" name="loan" class="btn btn-outline-success rounded-5 px-4">
+                <a href ="booking-now" name="loan" class="btn btn-outline-success rounded-5 px-4">
                     Booking
                 </a>
 

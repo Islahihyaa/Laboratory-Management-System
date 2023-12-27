@@ -189,7 +189,7 @@
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
+                <li>
                     <a href="dashboard">Dashboard</a>
                 </li>
                 <li>
@@ -209,11 +209,12 @@
                 <li>
                     <a href="detail-room">Detail Room</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="laboratory">Laboratory</a>
                 </li>
             </ul>
         </nav>
+
         <!-- Page Content  -->
         <div id="content" class="p-0">
 
@@ -232,65 +233,50 @@
                     </div>
                 </div>
             </nav>
-            
+
             <div id="content-data" class="px-5">
-                <h2>Overview</h2>
-                <div class="row">
-                    <div class="col-2 ">
-                        <div class="card rounded-4 border-success">
-                            <div class="card-body">
-                                <h5 class="card-title">Total Waiting</h5>
-                                <h1>{{$book_count}}</h1>
-                            </div>
-                        </div>
+                <h2> Laboratory </h2>
+
+                <div class="line my-3"></div>
+                <a href="laboratory-add" class="btn btn-success mb-4 mt-4">Add Laboratory</a></td>
+                @if(Session::has('message'))
+                        <div class="alert alert-primary alert-lg"> {{ Session::get('message') }}</div>
+                    @endif
+                    @if(Session::has('status'))
+                        <div class="alert alert-primary alert-lg"> {{ Session::get('status') }}</div>
+                    @endif
+                <div class="row row-cos-1">
+                    <div class="col">
+                        <table class="table  table-hover table-bordered table-white align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Laboratory Name</th>
+                                    <th>Laboratory Description</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            @foreach ($lab_detail as $lab)  
+                            <tbody>
+                                <tr>
+                                    <td>{{ $loop -> iteration }}</td>
+                                    <td>{{ $lab -> laboratory_name}}</td>
+                                    <td>{{ $lab -> laboratory_description}}</td>
+                                    <td>
+                                        <a href="{{url('laboratory-edit/'.$lab -> id)}}" class="btn btn-primary">Edit</a>
+                                        <a href="{{url('laboratory-delete/'.$lab -> id)}}" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            @endforeach
+                        </table>
                     </div>
                 </div>
-
-                <div class="line"></div>
-
-                @if(Session::has('status'))
-                    <div class="alert alert-danger alert-lg"> {{ Session::get('status') }}</div>
-                @endif
-
-                <span class="my-3">
-                    <p class="fw-bold text-dark"> Booking History </p>
-                </span>
-
-                <table class="table  table-hover table-bordered table-white align-middle">
-                    <thead class="table-light">
-                        <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>laboratorium</th>
-                            <th>Booking Date</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($book_history as $item)  
-                        <tr>
-                            <td scope="row">{{ $loop -> iteration }}</td>
-                            <td scope="row">{{ $item -> user -> full_name }}</td>
-                            <td scope="row">{{ $item -> laboratory['laboratory_name']}}</td>
-                            <td scope="row">{{ $item -> date }}</td>
-                            <td scope="row">
-                                @if ($item->status == 'APPROVED')
-                                    <i class="fw-bolder text-success">APPROVED</i> 
-                                @elseif ($item->status == 'REJECT')
-                                    <i class="fw-bolder text-danger">REJECTED</i>
-                                @else
-                                    <i class="fw-bolder text-secondary">PENDING</i>
-                                @endif</td>
-                            <td scope="row">
-                                    <a href="{{url('confirmation-delete/'.$item -> id)}}" class="btn btn-danger">Delete</a></td>
-                                    <!-- <button class="btn btn-danger" value="{{ $item -> id }}">Delete</button> -->
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
             </div>
+
+            
+
+
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

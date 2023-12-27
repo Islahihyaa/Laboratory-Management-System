@@ -10,9 +10,9 @@
 
 <body>
     <div id="status-letter" class="bg-light p-5">
+        
         <div class="container-fluid bg-white p-4 rounded-3 shadow">
             <h5 class="mb-4">Confirmation</h5>
-
             <form action="" method="post">
                 @csrf
                 @method('PUT')
@@ -70,7 +70,7 @@
                     <div class="col mt-3">
                         <div class="form-group mt-3">
                             <label for="my-input">Laboratorium</label>
-                            <input id="my-input" class="form-control" type="text" name="lab" value="{{ $status_update->lab }}" readonly>
+                            <input id="my-input" class="form-control" type="text" name="lab" value="{{ $status_update->laboratory->laboratory_name }}" readonly>
                         </div>
                     </div>
                 </div>

@@ -51,25 +51,25 @@
                     <div class="col">
                         <div class="form-group">
                             <label for="my-input">Name</label>
-                            <input id="my-input" class="form-control" type="text" name="full_name" value="<?php echo Auth::user()->full_name; ?>" readonly>
+                            <input id="my-input" class="form-control" style="background-color: #e0e0e0;" type="text" name="full_name" value="<?php echo Auth::user()->full_name; ?>" readonly>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label for="my-input">NIM</label>
-                            <input id="my-input" class="form-control" type="number" name="nim" value="<?php echo Auth::user()->nim; ?>" readonly>
+                            <input id="my-input" class="form-control" style="background-color: #e0e0e0;" type="number" name="nim" value="<?php echo Auth::user()->nim; ?>" readonly>
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <label for="my-input">Email</label>
-                            <input id="my-input" class="form-control" type="email" name="email" value="<?php echo Auth::user()->email; ?>" readonly>
+                            <input id="my-input" class="form-control" style="background-color: #e0e0e0;" type="email" name="email" value="<?php echo Auth::user()->email; ?>" readonly>
                         </div>
                     </div>
                     <div class="col mt-3">
                         <div class="form-group">
                             <label for="my-input">Major</label>
-                            <input id="my-input" class="form-control" type="text" name="major" value="<?php echo Auth::user()->major; ?>" readonly>
+                            <input id="my-input" class="form-control" style="background-color: #e0e0e0;" type="text" name="major" value="<?php echo Auth::user()->major; ?>" readonly>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,6 @@
                         @endif
                     </div>
 
-
                     <div class="col">
                         <div class="form-group">
                             <label for="my-input">Select Time to Return</label>
@@ -107,24 +106,18 @@
                             <p class="text-danger">{{ $errors->first('time_return') }}</p>
                          @endif
                     </div>
-
-
                     <div class="col mt-3">
                         <div class="form-group mt-3">
                             <label for="my-input">Chose Laboratorium</label>
-                            <select name="lab" id="" class="form-control">
-                                <option value="Lab Integra 1">Lab Integra 1</option>
-                                <option value="Lab Integra 2">Lab Integra 2</option>
-                                <option value="Lab Integra 3">Lab Integra 3</option>
-                                <option value="Lab Integra 4">Lab Integra 4</option>
-                                <option value="Lab Integra 5">Lab Integra 5</option>
-                                <option value="Lab Integra 6">Lab Integra 6</option>
-                                <option value="Lab Integra 7">Lab Integra 7</option>
-                                <option value="Lab Integra 8">Lab Integra 8</option>
-                                <option value="Lab Integra 9">Lab Integra 9</option>
-
+                            <select name="lab_id" class="form-control" >
+                                @foreach($lab_name as $selectlab)
+                                <option value="{{ $selectlab->id }}">{{$selectlab -> laboratory_name}}</option>
+                                @endforeach
                             </select>
                         </div>
+                        @if ($errors->has('lab_id'))
+                            <p class="text-danger">{{ $errors->first('lab_id') }}</p>
+                         @endif
                     </div>
                 </div>
 
@@ -136,8 +129,7 @@
                         <p class="text-danger">{{ $errors->first('booking_purpose') }}</p>
 
                     @endif
-
-
+                    
                 <div class="d-flex justify-content-end gap-3 mt-5">
                     <a href="index" class="btn btn-danger px-5"> CANCEL</a>
                     <button type="submit" class="btn btn-success px-5"> SUBMIT </button>

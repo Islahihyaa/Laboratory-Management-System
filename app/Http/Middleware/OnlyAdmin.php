@@ -17,10 +17,9 @@ class OnlyAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if(Auth::user()-> role != 'admin') {
-            return redirect('asd');
+            return redirect('index');
         }
         return $next($request);
 
-        // return $next($request);
     }
 }
