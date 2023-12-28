@@ -209,6 +209,9 @@
                 <li>
                     <a href="detail-room">Detail Room</a>
                 </li>
+                <li>
+                    <a href="laboratory">Laboratory</a>
+                </li>
             </ul>
         </nav>
 

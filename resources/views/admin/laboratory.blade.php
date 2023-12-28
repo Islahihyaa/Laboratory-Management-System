@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Room</title>
+    <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
 </head>
 <style>
     body {
@@ -164,9 +163,7 @@
         transition: all 0.3s;
     }
 
-    .card {
-        min-height: 150px;
-    }
+
 
     @media (max-width: 768px) {
         #sidebar {
@@ -209,10 +206,10 @@
                         </li>
                     </ul>
                 </li>
-                <li class="active">
+                <li>
                     <a href="detail-room">Detail Room</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="laboratory">Laboratory</a>
                 </li>
             </ul>
@@ -225,88 +222,59 @@
                 <div class="container-fluid">
                     <div class="d-flex justify-content-end w-100">
                         <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#"><?php echo Auth::user()->full_name; ?></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="logout" method="post">Logout</a>
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
             </nav>
 
             <div id="content-data" class="px-5">
+                <h2> Laboratory </h2>
 
-
-                <div>
-                    <div class="detail-title my-5">
-                        <h1>Detail Room</h1>
-                        <p class="text-dark fw-bold">Detail of integra TULT laboratorium</p>
-                    </div>
-
-                    <div class="description">
-                        <h6 class="fw-bold">Description</h6>
-                        <p class="text-dark w-75">A computer laboratory is a specially designed workspace for testing, development, and experiments in the field of computer technology. This room has an organized layout with workstations equipped with computers, monitors, and other computer accessories.</p>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <h5 class="my-3">Facilities</h5>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <div class="card rounded-4 border-success">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Capacity</h5>
-                                <h6>50 <br>People</h6>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <div class="card rounded-4 border-success">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Capacity</h5>
-                                <h6>50 <br>Unit</h6>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <div class="card rounded-4 border-success">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Projector</h5>
-                                <h6>2 <br>Unit</h6>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <div class="card rounded-4 border-success">
-
-                            <div class="card-body">
-                                <h5 class="card-title">Projector Screen</h5>
-                                <h6>2 <br>Unit</h6>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="line"></div>
-                <span class="my-2">
-                    <p class="fw-bold text-dark"> Pictures </p>
-                </span>
-                <div class="row row-cols-3 my-5">
+                <div class="line my-3"></div>
+                <a href="laboratory-add" class="btn btn-success mb-4 mt-4">Add Laboratory</a></td>
+                @if(Session::has('message'))
+                        <div class="alert alert-primary alert-lg"> {{ Session::get('message') }}</div>
+                    @endif
+                    @if(Session::has('status'))
+                        <div class="alert alert-primary alert-lg"> {{ Session::get('status') }}</div>
+                    @endif
+                <div class="row row-cos-1">
                     <div class="col">
-                                <img src="images/Mask group.png" alt="">
-                    </div>
-                    <div class="col">
-                                <img src="images/Mask group-2.png" alt="">
-                    </div>
-                    <div class="col">
-                                <img src="images/Mask group-1.png" alt="">
+                        <table class="table  table-hover table-bordered table-white align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Laboratory Name</th>
+                                    <th>Laboratory Description</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            @foreach ($lab_detail as $lab)  
+                            <tbody>
+                                <tr>
+                                    <td>{{ $loop -> iteration }}</td>
+                                    <td>{{ $lab -> laboratory_name}}</td>
+                                    <td>{{ $lab -> laboratory_description}}</td>
+                                    <td>
+                                        <a href="{{url('laboratory-edit/'.$lab -> id)}}" class="btn btn-primary">Edit</a>
+                                        <a href="{{url('laboratory-delete/'.$lab -> id)}}" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            @endforeach
+                        </table>
                     </div>
                 </div>
             </div>
+
+            
 
 
         </div>
