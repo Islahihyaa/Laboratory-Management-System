@@ -209,6 +209,12 @@
                 <li>
                     <a href="detail-room">Detail Room</a>
                 </li>
+                <li>
+                    <a href="laboratory">Laboratory</a>
+                </li>
+                <li>
+                    <a href="user-manage">User Management</a>
+                </li>
             </ul>
         </nav>
 

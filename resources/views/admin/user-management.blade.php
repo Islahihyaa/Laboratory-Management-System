@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking DSC</title>
+    <title>Labaccess | User Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
 </head>
 <style>
     body {
@@ -164,7 +163,9 @@
         transition: all 0.3s;
     }
 
-
+    .card {
+        min-height: 150px;
+    }
 
     @media (max-width: 768px) {
         #sidebar {
@@ -193,7 +194,7 @@
                 <li>
                     <a href="dashboard">Dashboard</a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
@@ -202,7 +203,7 @@
                         <li>
                             <a href="book-ti">Teknik Industri</a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="book-dsc">Digital Chain Supply</a>
                         </li>
                     </ul>
@@ -210,16 +211,14 @@
                 <li>
                     <a href="detail-room">Detail Room</a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="user-manage">User Management</a>
                 </li>
             </ul>
         </nav>
-
-        <!-- Page Content  -->
+        
         <div id="content" class="p-0">
-
-        <nav class="navbar navbar-expand-lg navbar-light">
+            <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <div class="d-flex justify-content-end w-100">
                         <ul class="navbar-nav">
@@ -230,98 +229,70 @@
                                 <a class="nav-link" href="logout" method="post">Logout</a>
                             </li>
                         </ul>
-
                     </div>
                 </div>
             </nav>
 
             <div id="content-data" class="px-5">
-
-                <h2>Digital Chain Supply</h2>
-                <div class="row">
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">All Book
-                            <button class="btn btn-sm btn-primary"></button>
-                        </p>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">Approved
-                            <button class="btn btn-sm btn-success"></button>
-                        </p>
-                    </div>
-                  
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">Pending Book
-                            <button class="btn btn-sm btn-warning"></button>
-                        </p>
-                    </div>
-                    <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-6">
-                        <p class="fw-bold text-dark">Rejected Book
-                            <button class="btn btn-sm btn-danger"></button>
-                        </p>
-                    </div>
-                </div>
+                <h2> User Management </h2>
 
                 <div class="line my-3"></div>
-                <span class="my-3">
-                    <p class="fw-bold text-dark"> Booking History </p>
-                @if(Session::has('message'))
-                    <div class="alert alert-primary alert-lg"> {{ Session::get('message') }}</div>
+                @if(Session::has('activeuser'))
+                    <div class="alert alert-success alert-lg"> {{ Session::get('activeuser') }}</div>
+                @endif
+                @if(Session::has('status'))
+                    <div class="alert alert-danger alert-lg"> {{ Session::get('status') }}</div>
+                @endif
+                @if(Session::has('dataupdate'))
+                    <div class="alert alert-success alert-lg"> {{ Session::get('dataupdate') }}</div>
                 @endif
 
-                </span>
                 <div class="row row-cos-1">
                     <div class="col">
                         <table class="table  table-hover table-bordered table-white align-middle">
                             <thead class="table-light">
                                 <tr>
                                     <th>No</th>
-                                    <th>Name</th>
-                                    <th>laboratorium</th>
-                                    <th>Booking Date</th>
-                                    <th>Purpose</th>
-                                    <th>Submission Date</th>
-                                    <th>Status</th>
+                                    <th>User Name</th>
+                                    <th>Email Address</th>
+                                    <th>Major</th>
+                                    <th>Date of Birth</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
+ 
                             <tbody>
-                            @foreach ($dsc_book_history as $item)  
+                                @foreach ($show_user as $user)
                                 <tr>
-                                    <td scope="row">{{ $loop -> iteration }}</td>
-                                    <td scope="row">{{ $item -> user -> full_name }}</td>
-                                    <td scope="row">{{ $item -> lab }}</td>
-                                    <td scope="row">{{ $item -> date }}</td>
-                                    <td scope="row">{{ $item -> booking_purpose }}</td>
-                                    <td scope="row">{{ $item -> created_at}}</td>
-                                    <td scope="row">    
-                                        @if ($item->status == 'APPROVED')
-                                            <i class="fw-bolder text-success">APPROVED</i> 
-                                        @elseif ($item->status == 'REJECT')
-                                            <i class="fw-bolder text-danger">REJECTED</i>
-                                        @else
-                                            <i class="fw-bolder text-secondary">PENDING</i>
-                                        @endif</td>
-                                    <td scope="row">
-                                           <a href="{{url('confirmation-update/'.$item -> id)}}" class="btn btn-primary">Change Status</a></td>
-                                        </form>
+                                    <td>{{ $loop -> iteration }}</td>
+                                    <td>{{ $user -> full_name}}</td>
+                                    <td>{{ $user -> email}}</td>
+                                    <td>{{ $user -> major}}</td>
+                                    <td>{{ $user -> date_of_birth}}</td>
+                                    <td>
+                                        <a href="{{url('user-edit/'.$user -> id)}}" class="btn btn-primary">Edit</a>
+                                        <a href="{{url('user-delete/'.$user -> id)}}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
-                            @endforeach
+                                @endforeach
                             </tbody>
+
                         </table>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            @foreach ($errors->all() as $error)
+                                <p>{{ $error }}</p>
+                            @endforeach
+                        </div>
+                    @endif
                     </div>
                 </div>
-                
-
             </div>
-
-
-        </div>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" integrity="sha512-qzrZqY/kMVCEYeu/gCm8U2800Wz++LTGK4pitW/iswpCbjwxhsmUwleL1YXaHImptCHG0vJwU7Ly7ROw3ZQoww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
+
 
 </html>

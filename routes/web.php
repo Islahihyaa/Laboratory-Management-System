@@ -10,6 +10,7 @@ use App\Http\Controllers\TIBoardController;
 use App\Http\Controllers\DSCBoardController;
 use App\Http\Controllers\DetailRoomController;
 use App\Http\Controllers\ConfirmationController;
+use App\Http\Controllers\ManageUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,6 +69,12 @@ Route::middleware('auth')->group(function(){
 
     //admin-detailroom
     Route::get('detail-room', [DetailRoomController::class, 'detailroom']);
+
+    
+    Route::get('user-manage', [ManageUserController::class, 'showuser']);
+    Route::get('user-edit/{id}', [ManageUserController::class, 'edituser']);
+    Route::put('user-edit/{id}', [ManageUserController::class, 'confirmedit']);
+    Route::get('user-delete/{id}', [ManageUserController::class, 'deletuser']);
     
 });
 

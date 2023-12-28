@@ -35,11 +35,11 @@ class AuthController extends Controller
             'nim' => 'required|min:5|unique:users',
             'date_of_birth' => 'required',
             'major' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:3',
         ]);
 
         // Membuat pengguna baru
-        $user = User::create([
+        $user = User::create([  
             'full_name' => $request->full_name,
             'email' => $request->email,
             'nim' => $request->nim,

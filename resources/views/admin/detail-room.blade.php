@@ -212,6 +212,9 @@
                 <li class="active">
                     <a href="detail-room">Detail Room</a>
                 </li>
+                <li>
+                    <a href="user-manage">User Management</a>
+                </li>
             </ul>
         </nav>
 
