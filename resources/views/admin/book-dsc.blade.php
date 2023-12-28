@@ -15,7 +15,8 @@
                     <a href="dashboard">Dashboard</a>
                 </li>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Booking</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="book-si">Sistem Informasi</a>
@@ -121,9 +122,9 @@
                                     <td scope="row">
                                            <a href="{{url('confirmation-update/'.$item -> id)}}" class="btn btn-primary">Change Status</a></td>
                                         </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -15,4 +15,9 @@ class Laboratory extends Model
         'laboratory_name',
         'laboratory_description',
     ];
+
+    public function inventory()
+    {
+        return $this->hasMany(Inventory::class);
+    }
 }

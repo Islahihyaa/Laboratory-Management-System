@@ -56,9 +56,7 @@ class DashboardController extends Controller
         $deletehistory = Loan::find($id);
         $deletehistory->delete();
 
-        Session::flash('status','Data Deleted Succesfully');
+        session()->flash('status', 'Data Deleted Succesfully');
         return redirect('dashboard');
     }
-
-
 }

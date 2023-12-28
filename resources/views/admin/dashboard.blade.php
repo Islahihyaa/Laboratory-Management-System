@@ -15,7 +15,8 @@
                     <a href="dashboard">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Booking</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="book-si">Sistem Informasi</a>

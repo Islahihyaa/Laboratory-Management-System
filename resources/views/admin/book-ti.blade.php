@@ -15,7 +15,8 @@
                     <a href="dashboard">Dashboard</a>
                 </li>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Booking</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="book-si">Sistem Informasi</a>
@@ -28,6 +29,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li>
                     <a href="laboratory">Laboratory</a>
                 </li>
@@ -82,9 +84,9 @@
                 <div class="line my-3"></div>
                 <span class="my-3">
                     <p class="fw-bold text-dark"> Booking History </p>
-                @if(Session::has('message'))
-                    <div class="alert alert-primary alert-lg"> {{ Session::get('message') }}</div>
-                @endif
+                    @if (Session::has('message'))
+                        <div class="alert alert-primary alert-lg"> {{ Session::get('message') }}</div>
+                    @endif
                 </span>
                 <div class="row row-cos-1">
                     <div class="col">
@@ -122,10 +124,10 @@
                                     <td scope="row">
                                            <a href="{{url('confirmation-update/'.$item -> id)}}" class="btn btn-primary">Change Status</a></td>
                                         </form>
-                                    </td>
-                                </tr>
-                                </tr>
-                            @endforeach
+                                        </td>
+                                    </tr>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
