@@ -29,10 +29,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="detail-room">Detail Room</a>
+                    <a href="laboratory">Laboratory</a>
                 </li>
                 <li>
-                    <a href="laboratory">Laboratory</a>
+                    <a href="add-inventory">Add Inventory</a>
+                </li>
+                <li>
+                    <a href="user-manage">User Management</a>
                 </li>
             </ul>
         </nav>
@@ -69,7 +72,7 @@
                         <tr>
                             <th>No</th>
                             <th>Name</th>
-                            <th>laboratorium</th>
+                            <th>Laboratorium</th>
                             <th>Booking Date</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -91,8 +94,7 @@
                                     <i class="fw-bolder text-secondary">PENDING</i>
                                 @endif</td>
                             <td scope="row">
-                                    <a href="{{url('confirmation-delete/'.$item -> id)}}" class="btn btn-danger">Delete</a></td>
-                                    <!-- <button class="btn btn-danger" value="{{ $item -> id }}">Delete</button> -->
+                                    <a href="{{url('confirmation-delete/'.$item -> id)}}" class="btn btn-danger" onclick="return confirm('Anda yakin ingin menghapus data?')" >Delete</a></td>
                             </td>
                         </tr>
                     @endforeach

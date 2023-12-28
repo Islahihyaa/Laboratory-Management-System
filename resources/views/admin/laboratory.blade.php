@@ -28,11 +28,14 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="detail-room">Detail Room</a>
-                </li>
                 <li class="active">
                     <a href="laboratory">Laboratory</a>
+                </li>
+                <li>
+                    <a href="add-inventory">Add Inventory</a>
+                </li>
+                <li>
+                    <a href="user-manage">User Management</a>
                 </li>
             </ul>
         </nav>
