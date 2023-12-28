@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Room</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
@@ -196,7 +197,8 @@
                     <a href="dashboard">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Booking</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="book-si">Sistem Informasi</a>
@@ -210,7 +212,10 @@
                     </ul>
                 </li>
                 <li class="active">
-                    <a href="detail-room">Detail Room</a>
+                    <a href="detail-room">Laboratory</a>
+                </li>
+                <li>
+                    <a href="/add-inventory-items">Add Inventory</a>
                 </li>
             </ul>
         </nav>
@@ -237,7 +242,10 @@
 
                     <div class="description">
                         <h6 class="fw-bold">Description</h6>
-                        <p class="text-dark w-75">A computer laboratory is a specially designed workspace for testing, development, and experiments in the field of computer technology. This room has an organized layout with workstations equipped with computers, monitors, and other computer accessories.</p>
+                        <p class="text-dark w-75">A computer laboratory is a specially designed workspace for testing,
+                            development, and experiments in the field of computer technology. This room has an organized
+                            layout with workstations equipped with computers, monitors, and other computer accessories.
+                        </p>
                     </div>
                 </div>
 
@@ -248,8 +256,8 @@
                         <div class="card rounded-4 border-success">
 
                             <div class="card-body">
-                                <h5 class="card-title">Capacity</h5>
-                                <h6>50 <br>People</h6>
+                                <h5 class="card-title">Room Capacity</h5>
+                                <h6>{{ $inventory->roomCapacity }} <br>Peoples</h6>
                             </div>
 
                         </div>
@@ -258,8 +266,8 @@
                         <div class="card rounded-4 border-success">
 
                             <div class="card-body">
-                                <h5 class="card-title">Capacity</h5>
-                                <h6>50 <br>Unit</h6>
+                                <h5 class="card-title">Computer Avaiable</h5>
+                                <h6>{{ $inventory->computerAvaiable }} <br>Units</h6>
                             </div>
 
                         </div>
@@ -268,8 +276,8 @@
                         <div class="card rounded-4 border-success">
 
                             <div class="card-body">
-                                <h5 class="card-title">Projector</h5>
-                                <h6>2 <br>Unit</h6>
+                                <h5 class="card-title">Projectors</h5>
+                                <h6>{{ $inventory->projector }} <br>Unit</h6>
                             </div>
 
                         </div>
@@ -280,36 +288,29 @@
 
                             <div class="card-body">
                                 <h5 class="card-title">Projector Screen</h5>
-                                <h6>2 <br>Unit</h6>
+                                <h6>{{ $inventory->screenProjector }} <br>Unit</h6>
                             </div>
 
                         </div>
                     </div>
-
-
                 </div>
                 <div class="line"></div>
-                <span class="my-2">
-                    <p class="fw-bold text-dark"> Pictures </p>
-                </span>
-                <div class="row row-cols-3 my-5">
-                    <div class="col">
-                                <img src="images/Mask group.png" alt="">
-                    </div>
-                    <div class="col">
-                                <img src="images/Mask group-2.png" alt="">
-                    </div>
-                    <div class="col">
-                                <img src="images/Mask group-1.png" alt="">
-                    </div>
+                <div class="action-area">
+                    <a href="/update-inventory-items/{{ $inventory->id }}" class="btn btn-success">Edit Inventory
+                        Data</a>
+                    <a href="/labolatory-details/inventory-delete/{{ $inventory->id }}" class="btn btn-danger">Delete
+                        Inventory Data</a>
                 </div>
             </div>
-
-
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
+    </script>
 </body>
 
 

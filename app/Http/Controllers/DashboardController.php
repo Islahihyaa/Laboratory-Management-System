@@ -28,12 +28,22 @@ class DashboardController extends Controller
         return view('admin.book-ti');
     }
 
+    public function laboratory()
+    {
+        return view('admin.laboratory');
+    }
+
+    public function addlaboratory()
+    {
+        return view('admin.laboratory-add');
+    }
+
     public function bookhistory()
     {
         $bookinghistory = Loan::with('user')
-        ->orderBy('updated_at', 'desc')
-        ->where('status', '!=', 'PENDING')
-        ->get();
+            ->orderBy('updated_at', 'desc')
+            ->where('status', '!=', 'PENDING')
+            ->get();
         return view('admin.dashboard', ['book_history' => $bookinghistory]);
     }
 
@@ -42,9 +52,7 @@ class DashboardController extends Controller
         $deletehistory = Loan::find($id);
         $deletehistory->delete();
 
-        Session::flash('status','Data Deleted Succesfully');
+        session()->flash('status', 'Data Deleted Succesfully');
         return redirect('dashboard');
     }
-
-
 }

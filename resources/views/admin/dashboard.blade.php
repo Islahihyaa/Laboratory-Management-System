@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <style>
     body {
@@ -193,7 +194,8 @@
                     <a href="dashboard">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Booking</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="book-si">Sistem Informasi</a>
@@ -207,7 +209,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="detail-room">Detail Room</a>
+                    <a href="laboratory">Laboratory</a>
                 </li>
             </ul>
         </nav>
@@ -272,7 +274,7 @@
 
                 </div>
                 <div class="line"></div>
-                @if(Session::has('status'))
+                @if (Session::has('status'))
                     <div class="alert alert-danger alert-lg"> {{ Session::get('status') }}</div>
                 @endif
                 <span class="my-3">
@@ -280,46 +282,53 @@
                 </span>
 
                 <table class="table  table-hover table-bordered table-white align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>No</th>
-                                    <th>Name</th>
-                                    <th>laboratorium</th>
-                                    <th>Booking Date</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($book_history as $item)  
-                                <tr>
-                                    <td scope="row">{{ $loop -> iteration }}</td>
-                                    <td scope="row">{{ $item -> user -> full_name }}</td>
-                                    <td scope="row">{{ $item -> lab }}</td>
-                                    <td scope="row">{{ $item -> date }}</td>
-                                    <td scope="row">
-                                        @if ($item->status == 'APPROVED')
-                                            <i class="fw-bolder text-success">APPROVED</i> 
-                                        @elseif ($item->status == 'REJECT')
-                                            <i class="fw-bolder text-danger">REJECTED</i>
-                                        @else
-                                            <i class="fw-bolder text-secondary">PENDING</i>
-                                        @endif</td>
-                                    <td scope="row">
-                                           <a href="{{url('confirmation-delete/'.$item -> id)}}" class="btn btn-danger">Delete</a></td>
-                                           <!-- <button class="btn btn-danger" value="{{ $item -> id }}">Delete</button> -->
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                    <thead class="table-light">
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>laboratorium</th>
+                            <th>Booking Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($book_history as $item)
+                            <tr>
+                                <td scope="row">{{ $loop->iteration }}</td>
+                                <td scope="row">{{ $item->user->full_name }}</td>
+                                <td scope="row">{{ $item->lab }}</td>
+                                <td scope="row">{{ $item->date }}</td>
+                                <td scope="row">
+                                    @if ($item->status == 'APPROVED')
+                                        <i class="fw-bolder text-success">APPROVED</i>
+                                    @elseif ($item->status == 'REJECT')
+                                        <i class="fw-bolder text-danger">REJECTED</i>
+                                    @else
+                                        <i class="fw-bolder text-secondary">PENDING</i>
+                                    @endif
+                                </td>
+                                <td scope="row">
+                                    <a href="{{ url('confirmation-delete/' . $item->id) }}"
+                                        class="btn btn-danger">Delete</a>
+                                </td>
+                                <!-- <button class="btn btn-danger" value="{{ $item->id }}">Delete</button> -->
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
 
 
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
+    </script>
 </body>
 
 
