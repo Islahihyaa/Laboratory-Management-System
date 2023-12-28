@@ -32,7 +32,7 @@ class AuthController extends Controller
         $request->validate([
             'full_name' => 'required',
             'email' => 'required|unique:users',
-            'nim' => 'required|min:5|unique:users',
+            'nim' => 'required|min:5|unique:users|max:11',
             'date_of_birth' => 'required',
             'major' => 'required',
             'password' => 'required|min:3',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Loan;
+use App\Models\Laboratory;
 use Illuminate\Support\Facades\Auth;
 use Session;
 
@@ -22,9 +23,9 @@ class LoanController extends Controller
             'email' => 'required',
             'major' => 'required',
             'date' => 'required',
+            'lab_id' => 'required',
             'time_rent' => 'required',
             'time_return' => 'required',
-            'lab' => 'required',
             'booking_purpose' => 'required',
         ]);
 
@@ -32,7 +33,7 @@ class LoanController extends Controller
 
         $loansubmission = Loan::create([
             'user_id' => $user_id,
-            'lab'=> $request->input('lab'),
+            'lab_id'=> $request->input('lab_id'),
             'date' => $request->input('date'),
             'time_rent'=> $request->input('time_rent'),
             'time_return' => $request->input('time_return'),
@@ -43,21 +44,21 @@ class LoanController extends Controller
             return redirect ('form-success');
 
         } else {
-            return redirect("form-success");
-        }      
+            dd('eror');
+        }
     }
 
     public function bookingnow()
     {
-        return view ('client.lab-loan-letter');
+        $laboratory= Laboratory::all();
+        return view ('client.lab-loan-letter', ['lab_name'=> $laboratory]);
     }
 
     public function bookingstatus()
     {
         $userId = Auth::id();
-
-
-        $bookingstatus = Loan::where('user_id', $userId)
+        $bookingstatus = Loan::with('laboratory')
+        ->where('user_id', $userId)
         ->orderBy('updated_at', 'desc')
         ->get();
         return view('client.status-letter', ['book_status' => $bookingstatus]);

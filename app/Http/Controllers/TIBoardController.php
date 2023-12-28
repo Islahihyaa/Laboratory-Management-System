@@ -14,8 +14,20 @@ class TIBoardController extends Controller
         ->whereHas('user', function ($query) {
             $query->where('major', 'Teknik Industri');
         })
-        ->orderBy('created_at', 'desc')
+        ->where('status', '!=' , 'APPROVED')
+        ->orderBy('updated_at', 'asc')
         ->get();
-        return view('admin.book-ti', ['ti_book_history' => $tibooking]);
+
+        $tiscpprove= Loan::with('user')
+        ->whereHas('user', function ($query) {
+            $query->where('major', 'Teknik Industri');
+        })
+        ->where('status', 'APPROVED')
+        ->orderBy('lab_id', 'asc')
+        ->orderBy('date', 'asc')
+        ->orderBy('time_rent', 'asc')
+        ->get();
+
+        return view('admin.book-ti', ['ti_book_history' => $tibooking], ['ti_approved' => $tiscpprove]);
     }
 }

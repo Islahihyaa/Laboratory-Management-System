@@ -30,11 +30,11 @@
                     <div class="d-flex">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><?php echo Auth::user()->full_name; ?></a>
+                                <a class="nav-link active" aria-current="page" href=""><?php echo Auth::user()->full_name; ?></a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="logout" method="post">Logout</a>
+                                <a class="nav-link active" href="logout" method="post">Logout</a>
                             </li>
                             
                         </ul>
@@ -45,8 +45,6 @@
         </nav>
     </header>
 
-
-
     <div>
         <div class="container-fluid px-5 py-5">
             <h1>Hello <?php echo Auth::user()->full_name; ?>
@@ -56,7 +54,7 @@
                 <a href ="status-letter" name="status" class="btn btn-outline-success rounded-5 px-4">
                     Status
                 </a>
-                <a href ="loan" name="loan" class="btn btn-outline-success rounded-5 px-4">
+                <a href ="booking-now" name="loan" class="btn btn-outline-success rounded-5 px-4">
                     Booking
                 </a>
 
@@ -64,7 +62,6 @@
             </div>
         </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
