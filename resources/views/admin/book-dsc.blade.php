@@ -29,10 +29,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="detail-room">Detail Room</a>
+                    <a href="laboratory">Laboratory</a>
                 </li>
                 <li>
-                    <a href="laboratory">Laboratory</a>
+                    <a href="add-inventory">Add Inventory</a>
+                </li>
+                <li>
+                    <a href="user-manage">User Management</a>
                 </li>
             </ul>
         </nav>
@@ -87,7 +90,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Name</th>
-                                    <th>laboratorium</th>
+                                    <th>Laboratorium</th>
                                     <th>Booking Date</th>
                                     <th>Purpose</th>
                                     <th>Submission Date</th>
