@@ -28,6 +28,16 @@ class DashboardController extends Controller
         return view('admin.book-ti');
     }
 
+    public function laboratory()
+    {
+        return view('admin.laboratory');
+    }
+
+    public function addlaboratory()
+    {
+        return view('admin.laboratory-add');
+    }
+
     public function bookhistory()
     {
         $bookinghistory = Loan::with('user')
