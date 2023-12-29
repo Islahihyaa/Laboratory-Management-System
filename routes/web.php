@@ -10,6 +10,7 @@ use App\Http\Controllers\TIBoardController;
 use App\Http\Controllers\DSCBoardController;
 use App\Http\Controllers\DetailRoomController;
 use App\Http\Controllers\ConfirmationController;
+use App\Http\Controllers\LabController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,5 +70,17 @@ Route::middleware('auth')->group(function(){
     //admin-detailroom
     Route::get('detail-room', [DetailRoomController::class, 'detailroom']);
     
+    
+    Route::get('laboratory', [DashboardController::class, 'laboratory']);
+    Route::get('laboratory-add', [DashboardController::class, 'addlaboratory']);
+    
+    Route::get('laboratory', [LabController::class, 'DataLaboratory']);
+    Route::post('laboratory-add', [LabController::class, 'AddConfirmation']);
+
+    Route::get('laboratory-edit/{id}', [LabController::class, 'EditLaboratory']);
+    Route::put('laboratory-edit/{id}', [LabController::class, 'ConfirmEdit']);
+
+
+    Route::get('laboratory-delete/{id}', [LabController::class, 'DeleteLaboratory']);
 });
 

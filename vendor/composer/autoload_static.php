@@ -49,6 +49,14 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
         ),
+        'V' => 
+        array (
+            'Valitron\\' => 9,
+        ),
+        'U' => 
+        array (
+            'Utrust\\' => 7,
+        ),
         'T' => 
         array (
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
@@ -190,6 +198,14 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Valitron\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vlucas/valitron/src/Valitron',
+        ),
+        'Utrust\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/utrust/utrust/src',
         ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
@@ -353,8 +369,8 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -530,17 +546,32 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
+        'App\\Http\\Controllers\\ConfirmationController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConfirmationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DSCBoardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DSCBoardController.php',
+        'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
+        'App\\Http\\Controllers\\DetailRoomController' => __DIR__ . '/../..' . '/app/Http/Controllers/DetailRoomController.php',
+        'App\\Http\\Controllers\\LabController' => __DIR__ . '/../..' . '/app/Http/Controllers/LabController.php',
+        'App\\Http\\Controllers\\LoanController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoanController.php',
+        'App\\Http\\Controllers\\SIBoardController' => __DIR__ . '/../..' . '/app/Http/Controllers/SIBoardController.php',
+        'App\\Http\\Controllers\\TIBoardController' => __DIR__ . '/../..' . '/app/Http/Controllers/TIBoardController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
+        'App\\Http\\Middleware\\OnlyAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/OnlyAdmin.php',
+        'App\\Http\\Middleware\\OnlyUser' => __DIR__ . '/../..' . '/app/Http/Middleware/OnlyUser.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
+        'App\\Http\\Middleware\\ValidateUser' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateUser.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Laboratory' => __DIR__ . '/../..' . '/app/Models/Laboratory.php',
+        'App\\Models\\Loan' => __DIR__ . '/../..' . '/app/Models/Loan.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -659,6 +690,8 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\LoanSeeder' => __DIR__ . '/../..' . '/database/seeders/LoanSeeder.php',
+        'Database\\Seeders\\UserSeeder' => __DIR__ . '/../..' . '/database/seeders/UserSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
         'DateInvalidOperationException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateInvalidOperationException.php',
@@ -6490,6 +6523,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+        'Utrust\\ApiClient' => __DIR__ . '/..' . '/utrust/utrust/src/ApiClient.php',
+        'Utrust\\Validator' => __DIR__ . '/..' . '/utrust/utrust/src/Validator.php',
+        'Utrust\\Webhook\\Event' => __DIR__ . '/..' . '/utrust/utrust/src/Webhook/Event.php',
+        'Valitron\\Validator' => __DIR__ . '/..' . '/vlucas/valitron/src/Valitron/Validator.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Webmozart\\Assert\\InvalidArgumentException' => __DIR__ . '/..' . '/webmozart/assert/src/InvalidArgumentException.php',
