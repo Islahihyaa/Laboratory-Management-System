@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'v10.2.10',
-        'version' => '10.2.10.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '3ae52993632f4df25acb9d5acff230ae9a7285c0',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -380,9 +380,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'v10.2.10',
-            'version' => '10.2.10.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '3ae52993632f4df25acb9d5acff230ae9a7285c0',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -757,8 +757,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -1280,12 +1280,30 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'utrust/utrust' => array(
+            'pretty_version' => 'v1.1.0',
+            'version' => '1.1.0.0',
+            'reference' => '8a64390ec1a5486aeee69cd8b3ee2bb691dec3f1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../utrust/utrust',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'vlucas/phpdotenv' => array(
             'pretty_version' => 'v5.6.0',
             'version' => '5.6.0.0',
             'reference' => '2cf9fb6054c2bb1d59d1f3817706ecdb9d2934c4',
             'type' => 'library',
             'install_path' => __DIR__ . '/../vlucas/phpdotenv',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'vlucas/valitron' => array(
+            'pretty_version' => 'v1.4.11',
+            'version' => '1.4.11.0',
+            'reference' => 'fadce39f5f235755bb9794b2573af2d5bfcba85f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../vlucas/valitron',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
