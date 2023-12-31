@@ -33,10 +33,7 @@
                     <a href="laboratory">Laboratory</a>
                 </li>
                 <li>
-                    <a href="add-inventory">Add Inventory</a>
-                </li>
-                <li>
-                    <a href="user-manage">User Management</a>
+                    <a href="/add-inventory-items">Add Inventory</a>
                 </li>
                 <li>
                     <a href="user-manage">User Management</a>

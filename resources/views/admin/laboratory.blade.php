@@ -32,7 +32,7 @@
                     <a href="laboratory">Laboratory</a>
                 </li>
                 <li>
-                    <a href="add-inventory">Add Inventory</a>
+                    <a href="/add-inventory-items">Add Inventory</a>
                 </li>
                 <li>
                     <a href="user-manage">User Management</a>
@@ -53,8 +53,11 @@
                 @if(Session::has('message'))
                         <div class="alert alert-primary alert-lg"> {{ Session::get('message') }}</div>
                     @endif
-                    @if(Session::has('status'))
-                        <div class="alert alert-primary alert-lg"> {{ Session::get('status') }}</div>
+                    @if(Session::has('deleteLaboratory'))
+                        <div class="alert alert-danger alert-lg"> {{ Session::get('deleteLaboratory') }}</div>
+                    @endif
+                    @if(Session::has('activeuser'))
+                        <div class="alert alert-primary alert-lg"> {{ Session::get('activeuser') }}</div>
                     @endif
                 <div class="row row-cos-1">
                     <div class="col">

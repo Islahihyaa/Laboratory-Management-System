@@ -1,29 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('admin.layout.main-layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Labaccess | Edit Profile</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-</head>
-<style>
-    body {
-        min-height: 120vh;
-        overflow: hidden;
-    }
+@section('title', 'Labacces | Edit Profile')
 
-    p {
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.1em;
-        font-weight: 300;
-        line-height: 1.7em;
-        color: #999;
-    }
-
-</style>
-
-<body>
+@section('content')
         <div id="status-letter" class="bg-light p-5">
             <div class="card">
                 <div class="card-header">
@@ -86,14 +65,8 @@
                             @endforeach
                         </div>
                     @endif
-                    <!-- @if(Session::has('message'))
-                        <div class="alert alert-danger"> {{ Session::get('message') }}</div>
-                    @endif -->
                 </form>
             </div> 
         </div>
     </div>
-</body>
-
-
-</html>
+@endsection

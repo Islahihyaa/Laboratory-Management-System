@@ -41,12 +41,15 @@
                                     <i class="fw-bolder text-secondary">PENDING</i>
                                 @endif</td>
                                 <td scope="row">
-                                    <a href="" class="btn btn-success">Print</a></td>
-                                
+                                    <a href="{{ url('status-letter/delete/'.$item->id)}}" class="btn btn-danger">Delete</a></td>
+                                    
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                @if(Session::has('deletedMessage'))
+                    <div class="alert alert-danger alert-lg"> {{ Session::get('deletedMessage') }}</div>
+                @endif
             </div>
         </div>
     </div>

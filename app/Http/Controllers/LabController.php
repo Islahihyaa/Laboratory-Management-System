@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Laboratory;
+use App\Models\Loan;
 use Session;
 
 class LabController extends Controller
@@ -55,9 +56,16 @@ class LabController extends Controller
     public function DeleteLaboratory($id)
     {
         $deletelab = Laboratory::find($id);
+        $userActive = Loan::where('lab_id', $deletelab->id)->first();
+        if($deletelab){
+            if( $userActive && $deletelab->id == $userActive->lab_id) {
+                Session::flash('activeuser','The laboratory is now active');
+                return redirect('laboratory');
+            }
+        }
         $deletelab->delete();
 
-        Session::flash('status','Data Deleted Succesfully');
+        Session::flash('deleteLaboratory','Data Deleted Succesfully');
         return redirect('laboratory');
     }
 

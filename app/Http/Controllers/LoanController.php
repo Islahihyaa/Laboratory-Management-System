@@ -43,8 +43,6 @@ class LoanController extends Controller
         if($loansubmission) {
             return redirect ('form-success');
 
-        } else {
-            dd('eror');
         }
     }
 
@@ -62,6 +60,15 @@ class LoanController extends Controller
         ->orderBy('updated_at', 'desc')
         ->get();
         return view('client.status-letter', ['book_status' => $bookingstatus]);
+    }
+
+    public function deleteStatus($id)
+    {
+        $deleteStatus = Loan::find($id);
+        $deleteStatus->delete();
+
+        session()->flash('deletedMessage', 'Data Deleted Succesfully');
+        return redirect('status-letter');
     }
 
 }

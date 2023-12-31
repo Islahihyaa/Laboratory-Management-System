@@ -17,6 +17,6 @@ class Inventory extends Model
 
     public function laboratory()
     {
-        return $this->belongsTo(Laboratory::class, 'foreign_key');
+        return $this->belongsTo(Laboratory::class, 'laboratoryId', 'id');
     }
 }

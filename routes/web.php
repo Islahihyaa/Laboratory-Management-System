@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
         //user-index-status
         Route::get('status-letter', [LoanController::class, 'bookingstatus']);
         Route::get('booking-now', [LoanController::class, 'bookingnow']);
+        Route::get('status-letter/delete/{id}', [LoanController::class, 'deleteStatus']);
     });
 
     Route::middleware('only_admin')->group(function(){
