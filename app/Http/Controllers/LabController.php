@@ -19,7 +19,7 @@ class LabController extends Controller
     {
         $request->validate([
             'laboratory_name' => 'required',
-            'laboratory_description' => 'required|min:10',
+            'laboratory_description' => 'required',
         ]);
 
         $laboratorysubmission = Laboratory::create([
@@ -41,7 +41,7 @@ class LabController extends Controller
         $updateLaboratory = Laboratory::find($id);
         $request->validate([
             'laboratory_name' => 'required',
-            'laboratory_description' => 'required|min:10',
+            'laboratory_description' => 'required',
         ]);
 
         $updateLaboratory->update([
