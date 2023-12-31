@@ -9,14 +9,14 @@ class Inventory extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'inventoryId';
 
-    protected $guarded = ['id'];
+    protected $guarded = ['inventoryId'];
 
-    protected $fillable = ['roomCapacity', 'computerAvaiable', 'screenProjector', 'screenProjector', 'projector', 'labolatoryId'];
+    protected $fillable = ['roomCapacity', 'computerAvaiable', 'screenProjector', 'screenProjector', 'projector', 'id'];
 
     public function laboratory()
     {
-        return $this->belongsTo(Laboratory::class, 'laboratoryId', 'id');
+        return $this->belongsTo(Laboratory::class, 'id', 'id');
     }
 }

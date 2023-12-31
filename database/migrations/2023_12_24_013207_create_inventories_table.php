@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('inventories', function (Blueprint $table) {
-            $table->id();
+            $table->id('inventoryId');
             $table->tinyInteger('roomCapacity');
             $table->tinyInteger('computerAvaiable');
             $table->tinyInteger('screenProjector');
             $table->tinyInteger('projector');
-            $table->unsignedBigInteger('labolatoryId');
-            $table->foreign('labolatoryId')->references('id')->on('laboratory');
+            $table->unsignedBigInteger('id');
+            $table->foreign('id')->references('id')->on('laboratory');
             $table->timestamps();
         });
     }

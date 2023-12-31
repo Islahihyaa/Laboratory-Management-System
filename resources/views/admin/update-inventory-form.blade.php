@@ -66,7 +66,7 @@
                             value={{ $inventory->projector }}>
                     </div>
                 </div>
-                <input type="hidden" name="id" value="{{ $inventory->id }}">
+                <input type="hidden" name="id" value="{{ $inventory->inventoryId }}">
                 <div class="action-area mt-4">
                     <button type="submit" class="justify-content-end btn btn-success">Update</button>
                     <a href="/laboratory" class="btn btn-success">Back</a>

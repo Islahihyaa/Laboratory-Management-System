@@ -15,8 +15,7 @@
                     <a href="dashboard">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
-                        class="dropdown-toggle">Booking</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Booking</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="book-si">Sistem Informasi</a>
@@ -37,12 +36,6 @@
                     <a href="/add-inventory-items">Add Inventory</a>
                 </li>
                 <li>
-                    <a href="laboratory">Laboratory</a>
-                </li>
-                <li>
-                    <a href="add-inventory">Add Inventory</a>
-                </li>
-                <li>
                     <a href="user-manage">User Management</a>
                 </li>
             </ul>
@@ -51,7 +44,7 @@
         <!-- Page Content  -->
         <div id="content" class="p-0">
 
-        @include('admin.layout.header') 
+            @include('admin.layout.header')
             <div id="content-data" class="px-5">
 
 
@@ -117,9 +110,10 @@
                 </div>
                 <div class="line"></div>
                 <div class="action-area">
-                    <a href="/update-inventory-items/{{ $inventory->id }}" class="btn btn-success">Edit Inventory
+                    <a href="/update-inventory-items/{{ $inventory->inventoryId }}" class="btn btn-success">Edit Inventory
                         Data</a>
-                    <a href="/labolatory-details/inventory-delete/{{ $inventory->id }}" class="btn btn-danger">Delete
+                    <a href="/labolatory-details/inventory-delete/{{ $inventory->inventoryId }}"
+                        class="btn btn-danger">Delete
                         Inventory Data</a>
                 </div>
             </div>

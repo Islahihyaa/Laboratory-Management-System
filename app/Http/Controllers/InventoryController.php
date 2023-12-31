@@ -12,7 +12,7 @@ class InventoryController extends Controller
 
     public function index(Request $req)
     {
-        $inventory = Inventory::with('laboratory')->where('labolatoryId', $req->labolatoryId)->first();
+        $inventory = Inventory::with('laboratory')->where('id', $req->id)->first();
 
         if ($inventory) {
             return view('admin.detail-room', compact('inventory'));
@@ -35,7 +35,7 @@ class InventoryController extends Controller
         $inventory->computerAvaiable = $req->computerAvaiable;
         $inventory->screenProjector = $req->screenProjector;
         $inventory->projector = $req->projector;
-        $inventory->labolatoryId  = $req->labolatoryId;
+        $inventory->id = $req->id;
         $inventory->save();
 
         session()->flash('storeDataSuccessMessage', 'Inventory data is created');
@@ -45,7 +45,7 @@ class InventoryController extends Controller
     public function updateInventoryForm(Request $req)
     {
         $laboratoriums = $laboratoriums = Laboratory::all();
-        $inventory = DB::table('inventories')->where('id', $req->id)->first();
+        $inventory = DB::table('inventories')->where('inventoryId', $req->inventoryId)->first();
         return view('admin.update-inventory-form', compact('inventory', 'laboratoriums'));
     }
 
@@ -64,7 +64,7 @@ class InventoryController extends Controller
 
     public function destroy(Request $req)
     {
-        DB::table('inventories')->where('id', $req->id)->delete();
+        DB::table('inventories')->where('inventoryId', $req->inventoryId)->delete();
         session()->flash('deletedDataMessage', 'Inventory Data successfully deleted');
         return redirect('laboratory');
     }

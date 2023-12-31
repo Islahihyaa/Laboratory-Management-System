@@ -33,10 +33,10 @@
                     </div>
                     <div class="col">
                         <label for="lab">Select Laboratorium</label>
-                        <select name="labolatoryId" id="lab" class="form-select">
+                        <select name="id" id="lab" class="form-select">
                             <option selected>Choose Laboratorium Rooms</option>
                             @foreach ($laboratoriums as $laboratorium)
-                                <option value="{{ $laboratorium->labolatoryId }}">
+                                <option value="{{ $laboratorium->id }}">
                                     {{ $laboratorium->laboratory_name }}
                                 </option>
                             @endforeach

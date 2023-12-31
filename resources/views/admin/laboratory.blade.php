@@ -43,22 +43,34 @@
         <!-- Page Content  -->
         <div id="content" class="p-0">
 
-        @include('admin.layout.header') 
+            @include('admin.layout.header')
 
             <div id="content-data" class="px-5">
                 <h2> Laboratory </h2>
 
                 <div class="line my-3"></div>
                 <a href="laboratory-add" class="btn btn-success mb-4 mt-4">Add Laboratory</a></td>
-                @if(Session::has('message'))
-                        <div class="alert alert-primary alert-lg"> {{ Session::get('message') }}</div>
-                    @endif
-                    @if(Session::has('deleteLaboratory'))
-                        <div class="alert alert-danger alert-lg"> {{ Session::get('deleteLaboratory') }}</div>
-                    @endif
-                    @if(Session::has('activeuser'))
-                        <div class="alert alert-primary alert-lg"> {{ Session::get('activeuser') }}</div>
-                    @endif
+                @if (Session::has('message'))
+                    <div class="alert alert-primary alert-lg"> {{ Session::get('message') }}</div>
+                @endif
+                @if (Session::has('storeDataSuccessMessage'))
+                    <div class="alert alert-success alert-lg"> {{ Session::get('storeDataSuccessMessage') }}</div>
+                @endif
+                @if (Session::has('notSetDataMessage'))
+                    <div class="alert alert-warning alert-lg"> {{ Session::get('notSetDataMessage') }}</div>
+                @endif
+                @if (Session::has('updateInventoryMessage'))
+                    <div class="alert alert-success alert-lg"> {{ Session::get('updateInventoryMessage') }}</div>
+                @endif
+                @if (Session::has('deletedDataMessage'))
+                    <div class="alert alert-success alert-lg"> {{ Session::get('deletedDataMessage') }}</div>
+                @endif
+                @if (Session::has('deleteLaboratory'))
+                    <div class="alert alert-danger alert-lg"> {{ Session::get('deleteLaboratory') }}</div>
+                @endif
+                @if (Session::has('activeuser'))
+                    <div class="alert alert-primary alert-lg"> {{ Session::get('activeuser') }}</div>
+                @endif
                 <div class="row row-cos-1">
                     <div class="col">
                         <table class="table  table-hover table-bordered table-white align-middle">
@@ -70,18 +82,22 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            @foreach ($lab_detail as $lab)  
-                            <tbody>
-                                <tr>
-                                    <td>{{ $loop -> iteration }}</td>
-                                    <td>{{ $lab -> laboratory_name}}</td>
-                                    <td>{{ $lab -> laboratory_description}}</td>
-                                    <td>
-                                        <a href="{{url('laboratory-edit/'.$lab -> id)}}" class="btn btn-primary">Edit</a>
-                                        <a href="{{url('laboratory-delete/'.$lab -> id)}}" class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                            @foreach ($lab_detail as $lab)
+                                <tbody>
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td><a
+                                                href="/labolatory-details/{{ $lab->id }}">{{ $lab->laboratory_name }}</a>
+                                        </td>
+                                        <td>{{ $lab->laboratory_description }}</td>
+                                        <td>
+                                            <a href="{{ url('laboratory-edit/' . $lab->id) }}"
+                                                class="btn btn-primary">Edit</a>
+                                            <a href="{{ url('laboratory-delete/' . $lab->id) }}"
+                                                class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             @endforeach
                         </table>
                     </div>

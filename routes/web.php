@@ -36,73 +36,73 @@ Route::middleware('validate')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthController::class, 'logout']);
 
-    Route::middleware('only_user')->group(function(){
+    Route::middleware('only_user')->group(function () {
         //user-index
         Route::get('index', [UserController::class, 'index']);
         Route::get('status-letter', [UserController::class, 'status']);
-    
+
         //user-index-booking
         Route::post('loan', [LoanController::class, 'submitloan'])->name('loan');
         Route::get('form-success', [LoanController::class, 'successform']);
-    
+
         //user-index-status
         Route::get('status-letter', [LoanController::class, 'bookingstatus']);
         Route::get('booking-now', [LoanController::class, 'bookingnow']);
         Route::get('status-letter/delete/{id}', [LoanController::class, 'deleteStatus']);
     });
 
-    Route::middleware('only_admin')->group(function(){
+    Route::middleware('only_admin')->group(function () {
         //admin-dashboard
         Route::get('dashboard', [DashboardController::class, 'dashboard']);
         Route::get('dashboard', [DashboardController::class, 'bookhistory']);
-    
+
         //admin-dashboard-major
         Route::get('book-si', [DashboardController::class, 'bookSI']);
         Route::get('book-ti', [DashboardController::class, 'bookTI']);
         Route::get('book-dsc', [DashboardController::class, 'bookDSC']);
-    
+
         Route::get('book-si', [SIBoardController::class, 'historySI']);
         Route::get('book-ti', [TIBoardController::class, 'historyTI']);
         Route::get('book-dsc', [DSCBoardController::class, 'historyDSC']);
-    
+
         //admin-changestatus
         Route::get('confirmation-update/{id}', [ConfirmationController::class, 'confirmation']);
         Route::get('confirmation-update/{id}', [ConfirmationController::class, 'getdata']);
         Route::put('confirmation-update/{id}', [ConfirmationController::class, 'update']);
-    
+
         //admin-dashboard-delete
         Route::get('confirmation-delete/{id}', [DashboardController::class, 'delete']);
-    
+
         //admin-detailroom
         Route::get('detail-room', [DetailRoomController::class, 'detailroom']);
-    
-        
+
+
         Route::get('laboratory', [DashboardController::class, 'laboratory']);
         Route::get('laboratory-add', [DashboardController::class, 'addlaboratory']);
-        
+
         Route::get('laboratory', [LabController::class, 'DataLaboratory']);
         Route::post('laboratory-add', [LabController::class, 'AddConfirmation']);
-    
+
         Route::get('laboratory-edit/{id}', [LabController::class, 'EditLaboratory']);
         Route::put('laboratory-edit/{id}', [LabController::class, 'ConfirmEdit']);
-    
-    //admin-changestatus
-    Route::get('confirmation-update/{id}', [ConfirmationController::class, 'confirmation']);
-    Route::get('confirmation-update/{id}', [ConfirmationController::class, 'getdata']);
-    Route::put('confirmation-update/{id}', [ConfirmationController::class, 'update']);
-    
-    //admin-dashboard-delete
-    Route::get('confirmation-delete/{id}', [DashboardController::class, 'delete']);
 
-    //admin-detailroom
-    Route::get('detail-room', [DetailRoomController::class, 'detailroom']);
+        //admin-changestatus
+        Route::get('confirmation-update/{id}', [ConfirmationController::class, 'confirmation']);
+        Route::get('confirmation-update/{id}', [ConfirmationController::class, 'getdata']);
+        Route::put('confirmation-update/{id}', [ConfirmationController::class, 'update']);
 
-    
-    Route::get('user-manage', [ManageUserController::class, 'showuser']);
-    Route::get('user-edit/{id}', [ManageUserController::class, 'edituser']);
-    Route::put('user-edit/{id}', [ManageUserController::class, 'confirmedit']);
-    Route::get('user-delete/{id}', [ManageUserController::class, 'deletuser']);
-    
+        //admin-dashboard-delete
+        Route::get('confirmation-delete/{id}', [DashboardController::class, 'delete']);
+
+        //admin-detailroom
+        Route::get('detail-room', [DetailRoomController::class, 'detailroom']);
+
+
+        Route::get('user-manage', [ManageUserController::class, 'showuser']);
+        Route::get('user-edit/{id}', [ManageUserController::class, 'edituser']);
+        Route::put('user-edit/{id}', [ManageUserController::class, 'confirmedit']);
+        Route::get('user-delete/{id}', [ManageUserController::class, 'deletuser']);
+
         Route::get('laboratory-delete/{id}', [LabController::class, 'DeleteLaboratory']);
     });
 
@@ -119,15 +119,15 @@ Route::middleware('auth')->group(function () {
 
 
     // * Labolatorium Details
-    Route::get('/labolatory-details/{labolatoryId}', [InventoryController::class, 'index']);
+    Route::get('/labolatory-details/{id}', [InventoryController::class, 'index']);
 
     Route::get('/add-inventory-items', [InventoryController::class, 'createInventoryForm']);
 
     Route::post('/create-inventory-items', [InventoryController::class, 'store']);
 
-    Route::get('/update-inventory-items/{id}', [InventoryController::class, 'updateInventoryForm']);
+    Route::get('/update-inventory-items/{inventoryId}', [InventoryController::class, 'updateInventoryForm']);
 
     Route::put('/updating-inventory-items', [InventoryController::class, 'update']);
 
-    Route::get('/labolatory-details/inventory-delete/{id}', [InventoryController::class, 'destroy']);
+    Route::get('/labolatory-details/inventory-delete/{inventoryId}', [InventoryController::class, 'destroy']);
 });
